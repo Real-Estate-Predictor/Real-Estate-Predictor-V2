@@ -15,4 +15,4 @@ house lot size, number of bedrooms, etc...
 
 # TODO:
 - [ ] Implement Linear Regression for House prediction
-- [ ] Calculate the percentage 
+- [ ] draw graphs:
