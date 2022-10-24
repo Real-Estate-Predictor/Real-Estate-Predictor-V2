@@ -1,7 +1,11 @@
+from helperFunc import Utils 
 from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
 from time import sleep
 url = 'https://www.rew.ca/properties/areas/vancouver-bc'
+data_dic = {}
+
+
 
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=False, slow_mo=500)
@@ -17,19 +21,21 @@ with sync_playwright() as p:
     page.wait_for_load_state()
 
     sleep(3)
+    html1 = page.inner_html('div.col-xs-12.col-md-8')
+    test = Utils().get_info(html1)
+    print(test)
+    # # go back
+    # page.goto(url)
+    # page.wait_for_load_state()
+    # sleep(3)
 
-    # go back
-    page.goto(url)
-    page.wait_for_load_state()
-    sleep(3)
+    # # click on the second one
+    # secondListing = page.query_selector_all('.displaypanel')[1]
+    # page.wait_for_load_state()
+    # secondListing.click()
 
-    # click on the second one
-    secondListing = page.query_selector_all('.displaypanel')[1]
-    page.wait_for_load_state()
-    secondListing.click()
+    # # go back
+    # page.goto(url)
 
-    # go back
-    page.goto(url)
-
-    # do not close too soon
-    sleep(10)
+    # # do not close too soon
+    # sleep(10)
