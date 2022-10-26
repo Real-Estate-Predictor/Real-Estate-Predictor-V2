@@ -61,8 +61,8 @@ class Utils:
         if 'List Price' in data_dic:
             del data_dic['List Price']
 
-        self.write_to_csv(data_dic)
-
+        # self.write_to_csv(data_dic)
+        
         return data_dic
 
 

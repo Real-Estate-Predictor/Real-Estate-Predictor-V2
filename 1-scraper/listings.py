@@ -39,27 +39,37 @@ with sync_playwright() as p:
     page.goto(url)
 
     # list of all elements taht contain .displaypanel 
-    listings = page.query_selector_all('.displaypanel')
+    # listings = page.query_selector_all('.displaypanel')
 
     # click on the first display panel
-    firstListing = listings[0]
-    firstListing.click()
-    page.wait_for_load_state()
+    # firstListing = listings[0]
+    # firstListing.click()
+    # page.wait_for_load_state()
 
-    sleep(3)
-    html1 = page.inner_html('div.col-xs-12.col-md-8')
-    test = Utils().get_info(html1)
-    print(test)
+    # sleep(3)
+    # html1 = page.inner_html('div.col-xs-12.col-md-8')
+    # test = Utils().get_info(html1)
+    # print(test)
     # # go back
     # page.goto(url)
     # page.wait_for_load_state()
     # sleep(3)
 
-    # # click on the second one
-    # secondListing = page.query_selector_all('.displaypanel')[1]
-    # page.wait_for_load_state()
-    # secondListing.click()
-
+    # click on the second one
+    
+    listing = page.query_selector_all('.displaypanel')
+    for i in range(len(listing)):
+        if i == 2:
+            break
+        listing = page.query_selector_all('.displaypanel')
+        currListing = listing[i]
+        currListing.click()
+        page.wait_for_load_state()
+        html1 = page.inner_html('div.col-xs-12.col-md-8')
+        dic_data = Utils().get_info(html1)
+        Utils().write_to_csv(dic_data)
+        print(dic_data.keys())
+        page.goto(url)
     # # go back
     # page.goto(url)
 
