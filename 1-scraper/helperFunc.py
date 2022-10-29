@@ -39,7 +39,6 @@ class Utils:
         # print('ADDRESS:',address_text, type(address_text))
         data_dic['address'] = address_text
 
-
         # get price
         price = soup.findAll("div", {"class": "listingheader-price"})
 
@@ -49,12 +48,12 @@ class Utils:
         # save price to dictionary
         data_dic['price'] = price_text
 
-        all_tbody = soup.find_all("div", {"class": "lineddisplay"})
+        all_lineddisplay = soup.find_all("div", {"class": "lineddisplay"})
 
-        for tbody in all_tbody:
-            for tr in tbody.find_all('section'):
-                key = tr.find_all('div')[0].text.strip('\n')
-                val = tr.find_all('div')[1].text.strip('\n')
+        for lineddisplay in all_lineddisplay:
+            for section in lineddisplay.find_all('section'):
+                key = section.find_all('div')[0].text.strip('\n')
+                val = section.find_all('div')[1].text.strip('\n')
                 data_dic[key] = val
 
         if 'List Price' in data_dic:

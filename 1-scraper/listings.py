@@ -7,10 +7,6 @@ import sys
 url = 'https://www.rew.ca/properties/areas/vancouver-bc'
 data_dic = {}
 
-
-
-
-
 with sync_playwright() as p:
 
     # use proxy 
@@ -37,46 +33,26 @@ with sync_playwright() as p:
     )
 
     page.goto(url)
-
-    # list of all elements taht contain .displaypanel 
-    # listings = page.query_selector_all('.displaypanel')
-
-    # click on the first display panel
-    # firstListing = listings[0]
-    # firstListing.click()
-    # page.wait_for_load_state()
-
-    # sleep(3)
-    # html1 = page.inner_html('div.col-xs-12.col-md-8')
-    # test = Utils().get_info(html1)
-    # print(test)
-    # # go back
-    # page.goto(url)
-    # page.wait_for_load_state()
-    # sleep(3)
-
-    # click on the second one
     
     listing = page.query_selector_all('.displaypanel')
     for i in range(len(listing)):
+        # for dev
         if i == 2:
             break
-        # listing = page.query_selector_all('.displaypanel')
-        currListing = listing[i]
         
+        currListing = listing[i]
+        # open listing in new tab
         with page.context.expect_page() as tab:
             currListing.click(modifiers=['Meta'])
-            #page.click("#tabButton")
             new_tab = tab.value
             new_tab.wait_for_load_state()
+
             html1 = new_tab.inner_html('div.col-xs-12.col-md-8')
-            
             dic_data = Utils().get_info(html1)
             Utils().write_to_csv(dic_data)
             print(dic_data.keys())
             new_tab.close()
-        # currListing.click()
-        # newPage.wait_for_load_state()
+        
         
        
         
