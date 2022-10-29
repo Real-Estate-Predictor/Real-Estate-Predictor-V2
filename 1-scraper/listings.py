@@ -61,15 +61,36 @@ with sync_playwright() as p:
     for i in range(len(listing)):
         if i == 2:
             break
-        listing = page.query_selector_all('.displaypanel')
+        # listing = page.query_selector_all('.displaypanel')
         currListing = listing[i]
-        currListing.click()
-        page.wait_for_load_state()
-        html1 = page.inner_html('div.col-xs-12.col-md-8')
-        dic_data = Utils().get_info(html1)
-        Utils().write_to_csv(dic_data)
-        print(dic_data.keys())
-        page.goto(url)
+        
+        with page.context.expect_page() as tab:
+            currListing.click(modifiers=['Meta'])
+            #page.click("#tabButton")
+            new_tab = tab.value
+            new_tab.wait_for_load_state()
+            html1 = new_tab.inner_html('div.col-xs-12.col-md-8')
+            
+            dic_data = Utils().get_info(html1)
+            Utils().write_to_csv(dic_data)
+            print(dic_data.keys())
+            new_tab.close()
+        # currListing.click()
+        # newPage.wait_for_load_state()
+        
+       
+        
+        # page.goto(url)
+    
+
+# const browser = await playwright["chromium"].launch({headless : false});
+# const page = await browser.newPage();
+# await page.goto('https://www.facebook.com/');
+# var pagePromise = page.context().waitForEvent('page', p => p.url() =='https://www.messenger.com/');
+# await page.click('text=Messenger', { modifiers: ['Meta']});
+# const newPage = await pagePromise;
+# await newPage.bringToFront();
+# await browser.close();
     # # go back
     # page.goto(url)
 

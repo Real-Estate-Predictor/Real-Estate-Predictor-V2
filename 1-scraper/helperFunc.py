@@ -49,20 +49,19 @@ class Utils:
         # save price to dictionary
         data_dic['price'] = price_text
 
-
-        all_tbody = soup.find_all('tbody')
+        all_tbody = soup.find_all("div", {"class": "lineddisplay"})
 
         for tbody in all_tbody:
-            for tr in tbody.find_all('tr'):
-                key = tr.find_all('th')[0].text.strip('\n')
-                val = tr.find_all('td')[0].text.strip('\n')
+            for tr in tbody.find_all('section'):
+                key = tr.find_all('div')[0].text.strip('\n')
+                val = tr.find_all('div')[1].text.strip('\n')
                 data_dic[key] = val
 
         if 'List Price' in data_dic:
             del data_dic['List Price']
 
         # self.write_to_csv(data_dic)
-        
+
         return data_dic
 
 
