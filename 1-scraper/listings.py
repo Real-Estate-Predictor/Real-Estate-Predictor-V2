@@ -33,4 +33,4 @@ with sync_playwright() as p:
 	else route.continue_()
     )
 
-    pageUtils().scrapPage('vancouver', 'bc', page, 1, 2, 'arbutus')
+    pageUtils().scrapPage('vancouver', 'bc', page, 1, 2)
