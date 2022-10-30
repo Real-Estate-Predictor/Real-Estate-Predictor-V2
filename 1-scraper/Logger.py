@@ -4,13 +4,19 @@ import sys
 
 class Logger:
 
-    def __init__(self, debug_level=logging.DEBUG):
+    def __init__(self, log_level='DEBUG'):
         # reference: https://realpython.com/python-logging/
+
+        logging.basicConfig(level=logging.DEBUG)
 
         self.logger = logging.getLogger(__name__)
 
         # default log level is debug
-        self.logger.setLevel(debug_level)
+        self.logger.setLevel(logging.INFO)
+
+        
+        for handler in self.logger.handlers:
+            handler.setLevel('DEBUG')
 
         # formatter = logging.Formatter('%(asctime)s | %(levelname)s | %(message)s', 
         #                             '%m-%d-%Y %H:%M:%S')
@@ -28,4 +34,10 @@ class Logger:
 
     
     def debug(self, message):
-        self.logger.debug(message)
+        self.logger.debug('\t' + message)
+
+    def info(self, message):
+        self.logger.info('\t' + message)
+
+    def warning(self, message):
+        self.logger.warning('\t' + message)
