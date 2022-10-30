@@ -1,3 +1,4 @@
+from xmlrpc.client import Boolean
 from bs4 import BeautifulSoup
 from collections import OrderedDict
 import json
@@ -63,5 +64,8 @@ class Utils:
 
         return data_dic
 
-
-
+    def isNextPageAvailable(self, source_code: str) -> Boolean:
+        soup = BeautifulSoup(source_code, 'html.parser')
+        if soup.find('a') == None:
+            return False
+        return True

@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from time import sleep
 import sys
 
-url = 'https://www.rew.ca/properties/areas/vancouver-bc'
+pageNum = 1
 data_dic = {}
 
 with sync_playwright() as p:
@@ -24,41 +24,47 @@ with sync_playwright() as p:
         )
 
     page = browser.new_page()
-    
+
     # BLOCK IMAGE LOADING -> for playwright to load quicker
     # https://www.zenrows.com/blog/blocking-resources-in-playwright#block-by-resource-type
     page.route("**/*", lambda route: route.abort() 
 	if route.request.resource_type == "image" 
 	else route.continue_()
     )
-
-    page.goto(url)
     
-    listing = page.query_selector_all('.displaypanel')
-    for i in range(len(listing)):
-        # for dev
-        if i == 2:
-            break
-        
-        currListing = listing[i]
-        # open listing in new tab
-        with page.context.expect_page() as tab:
-            currListing.click(modifiers=['Meta'])
-            new_tab = tab.value
-            new_tab.wait_for_load_state()
 
-            html1 = new_tab.inner_html('div.col-xs-12.col-md-8')
-            dic_data = Utils().get_info(html1)
-            Utils().write_to_csv(dic_data)
-            print(dic_data.keys())
-            new_tab.close()
-        
-        
+    while True:
+        url = f'https://www.rew.ca/properties/areas/vancouver-bc/page/{pageNum}'
+        page.goto(url)
+        listing = page.query_selector_all('.displaypanel')
+        for i in range(len(listing)):
+        # for dev
+            if i == 1:
+                break
+            
+            currListing = listing[i]
+            # open listing in new tab
+            with page.context.expect_page() as tab:
+                currListing.click(modifiers=['Meta'])
+                new_tab = tab.value
+                new_tab.wait_for_load_state()
+
+                html1 = new_tab.inner_html('div.col-xs-12.col-md-8')
+                dic_data = Utils().get_info(html1)
+                Utils().write_to_csv(dic_data)
+                # print(dic_data.keys())
+                new_tab.close()
+        # check if next page exist or not
+        c = page.inner_html('li.paginator-next_page.paginator-control')
+        if not Utils().isNextPageAvailable(c):
+            break
+        pageNum+=1
+
        
         
         # page.goto(url)
     
-
+# div p	Selects all <p> elements inside <div> elements
 # const browser = await playwright["chromium"].launch({headless : false});
 # const page = await browser.newPage();
 # await page.goto('https://www.facebook.com/');
