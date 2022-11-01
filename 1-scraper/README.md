@@ -27,7 +27,12 @@ data that we are interested in are house and apartment in Greater Vancouver BC.
 - and more ...
 
 
-
+# Ways We made Data Scraping Faster and More Efficient
+- scrape data in new tabs instead of reqesting a new URL
+- disabling image loading
+- run in multiple computers for different Cities
+- Running playwright headless
+- run on cloud AWS
 
 
 

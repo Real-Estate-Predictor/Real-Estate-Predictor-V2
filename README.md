@@ -16,6 +16,7 @@ location, number of bedrooms, land size, etc...
 - How has the housing market changed in Greater Vancouver over the last two years?
 - What is the average house lot size for each city?
 - What is the average income of a household to be able to purchase a home at a given city?
+- how many more houses are listed more than townhouses and apartments?
 - ...
 
 
