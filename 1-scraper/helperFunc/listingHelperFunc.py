@@ -1,10 +1,11 @@
 from xmlrpc.client import Boolean
 from bs4 import BeautifulSoup
 from collections import OrderedDict
+from Logger import Logger
 import json
 import csv
 
-class Utils:
+class listingUtils:
     def write_to_csv(self, data: dict):
 
         li = []
@@ -19,9 +20,6 @@ class Utils:
 
     def get_info(self, source_code: str) -> dict:
         # returns a dictionary then writes
-
-        print("get_info() called")
-
         # turn the source code into a bfs object
         soup = BeautifulSoup(source_code, 'html.parser')
 
@@ -64,8 +62,4 @@ class Utils:
 
         return data_dic
 
-    def isNextPageAvailable(self, source_code: str) -> Boolean:
-        soup = BeautifulSoup(source_code, 'html.parser')
-        if soup.find('a') == None:
-            return False
-        return True
+    
