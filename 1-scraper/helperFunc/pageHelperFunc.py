@@ -12,7 +12,6 @@ class pageUtils:
         return False if soup.find('a') == None else True
     
     def scrapPage(self,  city, province, page, pageStart=1, pageEnd=None, neighborhood=None):
-        
         for neighborhood in vancouver_west_neighbourhoods:
             pageNum = pageStart
             neighborhood = '' if neighborhood is None else neighborhood + '-'

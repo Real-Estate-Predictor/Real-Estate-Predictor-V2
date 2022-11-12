@@ -1,0 +1,22 @@
+column_names = [
+"address",
+"price",
+"gross_tax",
+"strata_maintenance_fees",
+"bedrooms",
+"bathrooms",
+"property_type",
+"property_age",
+"title",
+"style",
+"heating_type",
+"feature",
+"amenities",
+"appliances",
+"community",
+"days_on_rew",
+"property_views",
+"mls®_number",
+"source",
+'frontage', 'lot_size', 'year_built', 'depth']
+
