@@ -39,9 +39,7 @@ class pageUtils:
                 # check if next page exist or not
                 c = page.inner_html('li.paginator-next_page.paginator-control')
 
-                if pageEnd is not None and pageEnd == pageNum:
-                    break
-
-                if not pageUtils().isNextPageAvailable(c):
-                    break
+                if pageEnd is not None and pageEnd == pageNum: break
+                if not pageUtils().isNextPageAvailable(c): break
+                
                 pageNum+=1

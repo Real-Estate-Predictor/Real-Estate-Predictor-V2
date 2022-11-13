@@ -18,5 +18,8 @@ column_names = [
 "property_views",
 "mls®_number",
 "source",
-'frontage', 'lot_size', 'year_built', 'depth']
+'frontage', 
+'lot_size', 
+'year_built', 
+'depth']
 
