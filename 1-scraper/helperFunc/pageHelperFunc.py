@@ -21,9 +21,7 @@ class pageUtils:
                 listing = page.query_selector_all('.displaypanel')
                 for i in range(len(listing)):
                 # for dev
-                    if i == 1:
-                        break
-                    
+                    #if i == 1: break
                     currListing = listing[i]
                     # open listing in new tab
                     with page.context.expect_page() as tab:
