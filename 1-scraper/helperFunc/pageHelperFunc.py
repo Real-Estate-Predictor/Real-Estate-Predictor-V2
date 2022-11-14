@@ -12,7 +12,6 @@ class pageUtils:
         return False if soup.find('a') == None else True
     
     def scrapPage(self,  city, province, page, pageStart=1, pageEnd=None, neighborhood=None):
-        
         for neighborhood in vancouver_west_neighbourhoods:
             pageNum = pageStart
             neighborhood = '' if neighborhood is None else neighborhood + '-'
@@ -22,9 +21,7 @@ class pageUtils:
                 listing = page.query_selector_all('.displaypanel')
                 for i in range(len(listing)):
                 # for dev
-                    if i == 1:
-                        break
-                    
+                    #if i == 1: break
                     currListing = listing[i]
                     # open listing in new tab
                     with page.context.expect_page() as tab:
@@ -40,9 +37,7 @@ class pageUtils:
                 # check if next page exist or not
                 c = page.inner_html('li.paginator-next_page.paginator-control')
 
-                if pageEnd is not None and pageEnd == pageNum:
-                    break
-
-                if not pageUtils().isNextPageAvailable(c):
-                    break
+                if pageEnd is not None and pageEnd == pageNum: break
+                if not pageUtils().isNextPageAvailable(c): break
+                
                 pageNum+=1
