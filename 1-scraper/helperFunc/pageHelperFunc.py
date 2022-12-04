@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 from helperFunc.listingHelperFunc import listingUtils 
 from collections import OrderedDict
 from locationName.vancouver.vancouverWest import vancouver_west_neighbourhoods
+from time import sleep
+import random
 import json
 import csv
 
@@ -17,8 +19,9 @@ class pageUtils:
             neighborhood = '' if neighborhood is None else neighborhood + '-'
             while True:
                 url = f'https://www.rew.ca/properties/areas/{neighborhood}{city}-{province}/page/{pageNum}'
-                page.goto(url)
+                page.goto(url)      
                 listing = page.query_selector_all('.displaypanel')
+
                 for i in range(len(listing)):
                 # for dev
                     #if i == 1: break
@@ -27,7 +30,7 @@ class pageUtils:
                     with page.context.expect_page() as tab:
                         currListing.click(modifiers=['Meta'])
                         new_tab = tab.value
-                        new_tab.wait_for_load_state()
+                        new_tab.wait_for_load_state("networkidle") 
 
                         html1 = new_tab.inner_html('div.col-xs-12.col-md-8')
                         dic_data = listingUtils().get_info(html1)

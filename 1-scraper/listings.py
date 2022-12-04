@@ -2,7 +2,6 @@ from helperFunc.listingHelperFunc import listingUtils
 from helperFunc.pageHelperFunc import pageUtils
 from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
-from time import sleep
 import sys
 
 pageNum = 24
