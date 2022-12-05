@@ -28,15 +28,20 @@ class pageUtils:
                     currListing = listing[i]
                     # open listing in new tab
                     with page.context.expect_page() as tab:
-                        currListing.click(modifiers=['Meta'])
-                        new_tab = tab.value
-                        new_tab.wait_for_load_state("networkidle") 
+                        try: 
+                            currListing.click(modifiers=['Meta'])
+                            new_tab = tab.value
+                            new_tab.wait_for_load_state("networkidle") 
+                            new_tab.wait_for_load_state("domcontentloaded")
 
-                        html1 = new_tab.inner_html('div.col-xs-12.col-md-8')
-                        dic_data = listingUtils().get_info(html1)
-                        listingUtils().write_to_csv(dic_data)
-                        # print(dic_data.keys())
-                        new_tab.close()
+                            html1 = new_tab.inner_html('div.col-xs-12.col-md-8')
+                            dic_data = listingUtils().get_info(html1)
+                            listingUtils().write_to_csv(dic_data)
+                            # print(dic_data.keys())
+                            new_tab.close()
+                        except:
+                            print('error occur')
+                            new_tab.close()
                 # check if next page exist or not
                 c = page.inner_html('li.paginator-next_page.paginator-control')
 
