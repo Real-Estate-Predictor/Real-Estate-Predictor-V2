@@ -2,7 +2,6 @@ from xmlrpc.client import Boolean
 from bs4 import BeautifulSoup
 from helperFunc.listingHelperFunc import listingUtils 
 from collections import OrderedDict
-from locationName.vancouver.vancouverWest import vancouver_west_neighbourhoods
 from time import sleep
 import random
 import json
@@ -13,8 +12,8 @@ class pageUtils:
         soup = BeautifulSoup(source_code, 'html.parser')
         return False if soup.find('a') == None else True
     
-    def scrapPage(self,  city, province, page, pageStart=1, pageEnd=None, neighborhood=None):
-        for neighborhood in vancouver_west_neighbourhoods:
+    def scrapPage(self,  city, province, page, pageStart=1, pageEnd=None, neighborhoods=None):
+        for neighborhood in neighborhoods:
             pageNum = pageStart
             neighborhood = '' if neighborhood is None else neighborhood + '-'
             while True:
