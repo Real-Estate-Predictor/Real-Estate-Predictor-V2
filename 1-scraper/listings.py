@@ -1,11 +1,25 @@
+"""
+arguments: 
+city, province, pageStart, pageEnd
+
+How to run example: 
+python3 listings.py vancouver bc 1 2
+"""
+
+
 from helperFunc.listingHelperFunc import listingUtils 
 from helperFunc.pageHelperFunc import pageUtils
 from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
+from locationName.vancouver.vancouverWest import vancouver_west_neighbourhoods
 import sys
 
-pageNum = 24
-data_dic = {}
+city = sys.argv[1]
+province = sys.argv[2]
+pageStart = sys.argv[3]
+pageEnd = sys.argv[4]
+neighborhoods = vancouver_west_neighbourhoods 
+
 
 with sync_playwright() as p:
 
@@ -28,8 +42,8 @@ with sync_playwright() as p:
     # BLOCK IMAGE LOADING -> for playwright to load quicker
     # https://www.zenrows.com/blog/blocking-resources-in-playwright#block-by-resource-type
     page.route("**/*", lambda route: route.abort() 
-	if route.request.resource_type == "image" 
-	else route.continue_()
+    if route.request.resource_type == "image" 
+    else route.continue_()
     )
 
-    pageUtils().scrapPage('vancouver', 'bc', page, 1, 2)
+    pageUtils().scrapPage(city, province, page,pageStart, pageEnd)

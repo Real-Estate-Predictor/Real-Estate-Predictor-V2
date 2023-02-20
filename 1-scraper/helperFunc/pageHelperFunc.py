@@ -13,8 +13,8 @@ class pageUtils:
         soup = BeautifulSoup(source_code, 'html.parser')
         return False if soup.find('a') == None else True
     
-    def scrapPage(self,  city, province, page, pageStart=1, pageEnd=None, neighborhood=None):
-        for neighborhood in vancouver_west_neighbourhoods:
+    def scrapPage(self,  city, province, page, pageStart=1, pageEnd=3, neighborhoods=[]):
+        for neighborhood in neighborhoods:
             pageNum = pageStart
             neighborhood = '' if neighborhood is None else neighborhood + '-'
             while True:
