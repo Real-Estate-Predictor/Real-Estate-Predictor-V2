@@ -36,6 +36,7 @@ class pageUtils:
 
                             html1 = new_tab.inner_html('div.col-xs-12.col-md-8')
                             dic_data = listingUtils().get_info(html1)
+                            sleep(random.randint(2, 5))
                             listingUtils().write_to_csv(dic_data)
                             # print(dic_data.keys())
                             new_tab.close()
@@ -49,3 +50,4 @@ class pageUtils:
                 if not pageUtils().isNextPageAvailable(c): break
                 
                 pageNum+=1
+                sleep(random.randint(5, 7))
