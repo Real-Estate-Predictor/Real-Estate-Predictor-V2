@@ -31,3 +31,21 @@ burnaby_part2 = [
   "Garden Village", "Greentree Village", "Highgate", "Metrotown", "South Slope", "Suncrest", "Upper Deer Lake",
 ]
 
+richmond = [
+"Boyd Park", "Bridgeport", "Brighouse", "Brighouse South", "Broadmoor", "East Cambie", 
+"East Richmond", "Garden City", "Gilmore", "Granville", "Hamilton", "Ironwood", "Lackner", 
+"McLennan", "McLennan North", "McNair", "Quilchena", "Riverdale", "Saunders", "Seafair", 
+"Sea Island", "South Arm", "Steveston North", "Steveston South", "Steveston Village", 
+"Terra Nova", "West Cambie", "Westwind", "Woodwards", 
+]
+
+richmond_part1 = [
+  "Boyd Park", "Bridgeport", "Brighouse", "Brighouse South", "Broadmoor", "East Cambie", 
+  "East Richmond", "Garden City", "Gilmore", "Granville", "Hamilton", "Ironwood", "Lackner", 
+]
+
+richmond_part2 = [
+  "McLennan", "McLennan North", "McNair", "Quilchena", "Riverdale", "Saunders", "Seafair", 
+  "Sea Island", "South Arm", "Steveston North", "Steveston South", "Steveston Village", 
+  "Terra Nova", "West Cambie", "Westwind", "Woodwards", 
+]
