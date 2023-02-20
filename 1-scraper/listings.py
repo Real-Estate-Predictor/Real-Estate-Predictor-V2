@@ -3,6 +3,7 @@ from helperFunc.pageHelperFunc import pageUtils
 from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
 import sys
+from locationName.vancouver.vancouverWest import vancouver_west_neighbourhoods
 
 pageNum = 24
 data_dic = {}
@@ -32,4 +33,5 @@ with sync_playwright() as p:
 	else route.continue_()
     )
 
-    pageUtils().scrapPage('vancouver', 'bc', page, 1, 2)
+    pageUtils().scrapPage('vancouver', 'bc', page, 1, 2, vancouver_west_neighbourhoods)
+``
