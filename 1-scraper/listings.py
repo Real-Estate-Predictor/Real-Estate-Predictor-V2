@@ -3,10 +3,7 @@ from helperFunc.pageHelperFunc import pageUtils
 from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
 import sys
-from locationName.vancouver.vancouverWest import vancouver_west_neighbourhoods
-
-pageNum = 24
-data_dic = {}
+from locationName.vancouver.vancouverWest import vancouver_west_neighbourhoods_part2
 
 with sync_playwright() as p:
 
@@ -14,13 +11,13 @@ with sync_playwright() as p:
     # https://playwright.dev/python/docs/network
     if len(sys.argv) > 1 and sys.argv[1]:
         browser = p.chromium.launch(
-            headless=False, 
+            headless=True,
             slow_mo=500,
             proxy={"server": sys.argv[1]}
         )
     else:
         browser = p.chromium.launch(
-            headless=False, 
+            headless=True, 
             slow_mo=500,
         )
 
@@ -33,5 +30,4 @@ with sync_playwright() as p:
 	else route.continue_()
     )
 
-    pageUtils().scrapPage('vancouver', 'bc', page, 1, 2, vancouver_west_neighbourhoods)
-``
+    pageUtils().scrapPage('vancouver', 'bc', page, 1, 2, vancouver_west_neighbourhoods_part2)

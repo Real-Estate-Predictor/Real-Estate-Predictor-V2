@@ -8,4 +8,26 @@ vancouver_west_neighbourhoods_part1 = ['arbutus', 'cambie','coal-harbour','downt
 'mount-pleasant-west','oakridge','point-grey'] 
 
 vancouver_west_neighbourhoods_part2 = ['quilchena','shaughnessy','south-cambie',
-'south-granville','southlands','southwest-marine','university-ubc','west-end','yaletown'] 
+'south-granville','southlands','southwest-marine','university-ubc','west-end','yaletown']
+
+burnaby = [
+ "East Burnaby", "Edmonds", "The Crest", "Burnab", "Brentwood Park", "Capitol Hill", "Cariboo",
+  "Central Burnaby North", "Forest Hills", "Government Road", "Lake Cit", "Montecito", "Oakdale", 
+  "Parkcrest", "Simon Fraser Hills", "Simon Fraser University", "Sperling-Duthie", "Sullivan Heights",
+  "Vancouver Heights", "Westridge", "Willingdon Heights", "Burnab", "Big Bend", "Buckingham Heights",
+ "Burnaby Hospital", "Burnaby Lake", "Central Park", "Deer Lake", "Deer Lake Place", "Forest Glen", 
+ "Garden Village", "Greentree Village", "Highgate", "Metrotown", "South Slope", "Suncrest", "Upper Deer Lake",
+]
+
+burnaby_part1 = [
+ "East Burnaby", "Edmonds", "The Crest", "Burnab", "Brentwood Park", "Capitol Hill", "Cariboo",
+  "Central Burnaby North", "Forest Hills", "Government Road", "Lake Cit", "Montecito", "Oakdale", 
+  "Parkcrest", "Simon Fraser Hills", "Simon Fraser University", "Sperling-Duthie", "Sullivan Heights",
+]
+
+burnaby_part2 = [
+  "Vancouver Heights", "Westridge", "Willingdon Heights", "Burnab", "Big Bend", "Buckingham Heights",
+  "Burnaby Hospital", "Burnaby Lake", "Central Park", "Deer Lake", "Deer Lake Place", "Forest Glen", 
+  "Garden Village", "Greentree Village", "Highgate", "Metrotown", "South Slope", "Suncrest", "Upper Deer Lake",
+]
+
