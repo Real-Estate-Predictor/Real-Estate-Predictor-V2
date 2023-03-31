@@ -12,6 +12,7 @@ user_bp = Blueprint('user', __name__)
 @user_bp.route('/create_user', methods=['POST'])
 def create_user():
     try:
+        #TODO change this to request.json
         user = {
             'name':request.form['name'], 
             'lastName':request.form['lastName']

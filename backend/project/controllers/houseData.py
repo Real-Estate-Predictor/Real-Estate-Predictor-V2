@@ -55,6 +55,7 @@ def createHouseData():
 
 @houseData_bp.route('/renderDataIntoHouseData', methods=['POST'])
 def renderDataIntoHouseData():
+    #TODO change this to relative path
     csvfile = open('/Users/chiashenglin/Documents/Coding/priceProject/Real-Estate-Predictor-V2/1-scraper/house_data.csv', 'r')
     reader = csv.DictReader( csvfile )
     try:

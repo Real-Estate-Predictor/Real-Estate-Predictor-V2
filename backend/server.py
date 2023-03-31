@@ -1,10 +1,7 @@
 from flask import Flask, Response, request, Blueprint
 from database import mongo
-import json
-from bson.objectid import ObjectId
 app = Flask(__name__)
-from project.controllers import houseData
-from project.controllers import user
+from project.controllers import houseData, user
 
 def register_blueprints(app):
     app.register_blueprint(user.user_bp, url_prefix='/user')
@@ -15,7 +12,7 @@ def register_blueprints(app):
 
 try:
     register_blueprints(app)
-    # print(app.url_map)
+    # print(app.url_map) # for debugging path
 except Exception as e:
     print('ERROR - Cannot register blueprint')
     print(e)
