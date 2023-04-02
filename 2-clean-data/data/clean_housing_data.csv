@@ -1,0 +1,16 @@
+,address,price,gross_tax,bedrooms,bathrooms,property_type,community,property_views,lot_size,year_built,depth,lot_width,lot_length,age,bungalow,storey,basement,laneway_house,split_entry
+0,3735 Puget Drive,5498800,19041,3,4,house,arbutus,1491,6954,1987,122,57,57,36,0,2,1,0,0
+22,2127 W 21st Avenue,4360000,15988,7,5,house,arbutus,601,6100,1989,122,50,50,34,0,3,0,0,0
+23,2268 W 19th Avenue,6880000,23147,5,8,house,arbutus,540,6104,2017,122,50,50,6,0,2,1,0,0
+24,3894 Quesnel Drive,5888000,12189,3,4,house,arbutus,284,4100,1933,93.2,44,44,90,0,3,0,0,0
+26,2690 W 21st Avenue,4299000,14265,7,6,house,arbutus,1440,7320,1994,122,60,60,29,0,2,1,0,0
+27,4422 Quesnel Drive,8850000,24525,5,7,house,arbutus,2652,6435,2017,130,49,49,6,0,3,1,0,0
+28,3409 Arbutus Street,2365000,7074,5,2,house,arbutus,707,3363,1930,59,57,57,93,0,2,0,0,0
+29,2811 Oliver Crescent,3888000,11481,9,8,house,arbutus,308,5320,2018,126/146,38,38,5,0,2,1,1,0
+30,2236 W 20th Avenue,4680000,15815,6,7,house,arbutus,222,6100,1996,122.00,50,50,27,0,2,1,0,0
+31,3347 Trutch Street,3190000,10757,3,3,house,arbutus,809,5760,1952,120,48,48,71,1,1,1,0,0
+33,3229 Trutch Street,6800000,23411,9,10,house,arbutus,317,8500,2020,190,45,45,3,0,2,1,0,0
+34,2376 W 22nd Avenue,4680000,16684,7,5,house,arbutus,360,6200,2002,122,51,51,21,0,2,1,0,1
+35,2718 W 19th Avenue,3380000,10097,10,5,house,arbutus,376,5124,1981,122,42,42,42,0,2,0,0,0
+36,2638 W 20th Avenue,3880000,12648,6,5,house,arbutus,222,6100,1989,122,50,50,34,0,2,1,0,0
+37,2885 W 20th Avenue,3480000,9246,4,4,house,arbutus,183,5004,1941,122.05,41,41,82,0,2,1,0,0
