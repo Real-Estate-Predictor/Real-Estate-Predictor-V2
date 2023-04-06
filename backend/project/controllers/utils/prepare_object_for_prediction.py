@@ -1,4 +1,3 @@
-# %%
 import pandas as pd
 
 # Remember to exclude PRICE from this list

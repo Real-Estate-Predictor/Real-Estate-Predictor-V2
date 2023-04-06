@@ -38,22 +38,38 @@ feature_input1 = {
 }
 
 #'price' 4360000
-feature_input2 = { 'gross_tax': 15988,
+feature_input2 = { 
+ 
+  # We should determine this by finding the average gross_tax for each neighbourhood
+  # since the user will not know the gross tax for each city/ neighbourhood
+ 'gross_tax': 15988,
  'bedrooms': 7,
  'bathrooms': 5,
  'community': 'arbutus',
+
+ # will default this to 100
  'property_views': 688.0,
+
+ # we should give default lot sizes
  'lot_size': 6100.0,
- 'year_built': 1989,
  'lot_width': 50.0,
  'lot_length': 50.0,
+
+ # simplify this
+ 'year_built': 1989,
  'age': 34,
+
+ # if storey == 1, make it bungalow
  'bungalow': 0,
  'storey': 3,
+  
+  # add this to more options
  'basement': 0,
  'laneway_house': 0,
  'garage': -1,
  'split_entry': 0,
+
+ # determin lat long based on community
  'latitude': 49.2535102,
  'longitude': -123.1529908}
 
