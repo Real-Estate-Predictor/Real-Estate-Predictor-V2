@@ -1,17 +1,27 @@
 
 from joblib import load
+from flask import request, Blueprint
 from flask import request, jsonify
+import sys
 
-from backend.project.controllers.utils.prepare_object_for_prediction import prepare_feature_for_prediction
 
-lin_reg_model = load('./ML_models/linear_reg_model.joblib')
+sys.path.append("../../../..")
+sys.path.append("../../")
 
-app.route('/predict', methods=['POST'])
+from project.utils.prepare_object_for_prediction import prepare_feature_for_prediction
+
+lin_reg_model = load('../ML_models/linear_reg_model.joblib')
+
+predict_bp = Blueprint('/', __name__)
+
+@predict_bp.route('/', methods=['POST'])
 def predict():
     # Get the JSON payload from the request
     features_obj = request.get_json()
+    if not features_obj:
+        return jsonify({'error': 'JSON payload is missing or malformed'}), 400
 
-    # Use the prepared_feature_for_prediction function to create a DataFrame from the features object
+    # Use the prepare_feature_for_prediction function to create a DataFrame from the features object
     features_df = prepare_feature_for_prediction(features_obj)
 
     # Get the 2D array from the DataFrame
@@ -21,6 +31,5 @@ def predict():
     y_pred = lin_reg_model.predict(features_array)
 
     # Format the output as a JSON object
-    output = {'predicted_price': y_pred[0] / 10000}
-
+    output = {'predicted_price': round(float(y_pred[0] / 10000), 2)}
     return jsonify(output)
