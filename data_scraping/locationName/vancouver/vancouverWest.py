@@ -10,6 +10,8 @@ vancouver_west_neighbourhoods_part1 = ['arbutus', 'cambie','coal-harbour','downt
 vancouver_west_neighbourhoods_part2 = ['quilchena','shaughnessy','south-cambie',
 'south-granville','southlands','southwest-marine','university-ubc','west-end','yaletown']
 
+
+
 burnaby = [
  "East Burnaby", "Edmonds", "The Crest", "Burnab", "Brentwood Park", "Capitol Hill", "Cariboo",
   "Central Burnaby North", "Forest Hills", "Government Road", "Lake Cit", "Montecito", "Oakdale", 
@@ -19,8 +21,13 @@ burnaby = [
  "Garden Village", "Greentree Village", "Highgate", "Metrotown", "South Slope", "Suncrest", "Upper Deer Lake",
 ]
 
+
+
 burnaby_part1 = [
- "East Burnaby", "Edmonds", "The Crest", "Burnab", "Brentwood Park", "Capitol Hill", "Cariboo",
+#  "East Burnaby",
+  #  "Edmonds", 
+  #  "The Crest", 
+   "Brentwood Park", "Capitol Hill", "Cariboo",
   "Central Burnaby North", "Forest Hills", "Government Road", "Lake Cit", "Montecito", "Oakdale", 
   "Parkcrest", "Simon Fraser Hills", "Simon Fraser University", "Sperling-Duthie", "Sullivan Heights",
 ]

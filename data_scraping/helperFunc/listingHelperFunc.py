@@ -7,12 +7,18 @@ import csv
 from helperFunc.columnNames import column_names
 
 class listingUtils:
-    def write_to_csv(self, data: dict):
-        with open('house_data.csv', mode='a',newline='') as data_file:
+    
+    def write_to_csv(self, data: dict, csv_file_path):
+        for column_name in column_names:
+            if column_name not in data:
+                data[column_name] = ""
+
+        with open(csv_file_path, mode='a',newline='') as data_file:
             data_writer = csv.DictWriter(data_file, fieldnames=column_names)
 
             # uncomment line below to print the column_names
             # data_writer.writeheader()
+            # print(data)
             data_writer.writerow(data)
 
     # returns a dictionary then writes
@@ -26,22 +32,12 @@ class listingUtils:
 
         # get address
         address = soup.findAll("div", {"class": "listingheader-address"})
-        print(address)
-        # save address to list
         address_text = address[0].text
-        table_data.append(['address',address_text])
-
-        # save address to dictionary 
-        # print('ADDRESS:',address_text, type(address_text))
         data_dic['address'] = address_text
 
         # get price
         price = soup.findAll("div", {"class": "listingheader-price"})
-
-        # save price to list
         price_text = price[0].text
-        table_data.append(['price',price_text])
-        # save price to dictionary
         data_dic['price'] = price_text
 
         all_lineddisplay = soup.find_all("div", {"class": "lineddisplay"})
@@ -52,7 +48,9 @@ class listingUtils:
                 val = section.find_all('div')[1].text.strip('\n').lower()
                 
                 data_dic[self.formattingKey(key)] = val
+                # print(data_dic[self.formattingKey(key)])
 
+        # print(data_dic)
         self.removeUselessColumn(data_dic)
         
         return data_dic

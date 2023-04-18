@@ -1,23 +1,58 @@
 from helperFunc.listingHelperFunc import listingUtils 
 from helperFunc.pageHelperFunc import pageUtils
+from helperFunc.helpers import process_string_list, create_file_if_not_exists
 from playwright.sync_api import sync_playwright
-from bs4 import BeautifulSoup
 import sys
-from locationName.vancouver.vancouverWest import vancouver_west_neighbourhoods_part2
+from locationName.vancouver.vancouverWest import burnaby_part1
 
+
+"""
+****INPUTS****
+"""
+
+neighbourhoods = burnaby_part1
+
+city = 'burnaby'
+province = 'bc'
+DoNotShowBrowser = True
+
+startingPageNumber = 1
+endingPageNumber = 10
+
+
+csv_path = f'./{city}_real_estate_data.csv'
+
+# for dev purposes, scrape only one listing
+testSingleListing = False
+
+showLogs = True
+
+"""
+PREPARE INPUTS
+"""
+# lower case and replace spaces with '-'
+neighbourhoods = process_string_list(neighbourhoods)
+
+create_file_if_not_exists(csv_path)
+
+"""
+START SCRAPING
+"""
 with sync_playwright() as p:
 
-    # use proxy 
+    # use proxy
     # https://playwright.dev/python/docs/network
     if len(sys.argv) > 1 and sys.argv[1]:
         browser = p.chromium.launch(
-            headless=True,
+            headless=DoNotShowBrowser,
             slow_mo=500,
             proxy={"server": sys.argv[1]}
         )
+
+
     else:
         browser = p.chromium.launch(
-            headless=True, 
+            headless=DoNotShowBrowser, 
             slow_mo=500,
         )
 
@@ -30,4 +65,14 @@ with sync_playwright() as p:
 	else route.continue_()
     )
 
-    pageUtils().scrapPage('vancouver', 'bc', page, 1, 2, vancouver_west_neighbourhoods_part2)
+    pageUtils().scrapPage(
+        city=city, 
+        province=province, 
+        page=page,
+        pageStart=startingPageNumber, 
+        pageEnd=endingPageNumber, 
+        neighborhoods=neighbourhoods,
+        csv_file_path=csv_path, 
+        TestSingleListing=testSingleListing,
+        showLogs=showLogs
+    )

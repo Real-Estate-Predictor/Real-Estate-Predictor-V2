@@ -21,5 +21,7 @@ column_names = [
 'frontage', 
 'lot_size', 
 'year_built', 
-'depth']
+'depth',
+'half_bathrooms'
+]
 
