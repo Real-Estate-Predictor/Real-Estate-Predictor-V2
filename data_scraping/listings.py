@@ -10,15 +10,16 @@ from locationName.vancouver.vancouverWest import burnaby_part1
 ****INPUTS****
 """
 
-neighbourhoods = burnaby_part1
+# neighbourhoods = burnaby_part1
+# if none, scrapes the entire city
+neighbourhoods = None
 
-city = 'burnaby'
+city = 'vancouver'
 province = 'bc'
 DoNotShowBrowser = True
 
-startingPageNumber = 1
-endingPageNumber = 10
-
+startingPageNumber = 11
+endingPageNumber = 25
 
 csv_path = f'./{city}_real_estate_data.csv'
 
@@ -31,12 +32,12 @@ showLogs = True
 PREPARE INPUTS
 """
 # lower case and replace spaces with '-'
-neighbourhoods = process_string_list(neighbourhoods)
+neighbourhoods = process_string_list(neighbourhoods) if neighbourhoods != None else None
 
 create_file_if_not_exists(csv_path)
 
 """
-START SCRAPING
+ACTIVATE PLAYWRIGHT
 """
 with sync_playwright() as p:
 
