@@ -44,13 +44,13 @@ class pageUtils:
                         with page.context.expect_page() as tab:
                             try:
                                 # sleep random time to prevent detection
-                                sleep(random.randint(1, 4))
+                                sleep(random.randint(3, 4))
 
                                 currListing.click(modifiers=['Meta'])
                                 new_tab = tab.value
                                 new_tab.wait_for_load_state("networkidle") 
                                 new_tab.wait_for_load_state("domcontentloaded")
-                                sleep(random.randint(2, 3))
+                                sleep(random.randint(3, 5))
 
                                 html1 = new_tab.inner_html('div.col-xs-12.col-md-8')
 
