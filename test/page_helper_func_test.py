@@ -2,13 +2,18 @@
 
 import sys
 import os
-sys.path.append("../")
-# 
+# sys.path.append("../../")
+# # 
 
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-sys.path.insert(0, project_root)
+# project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+# sys.path.insert(0, project_root)
 
+
+from data_scraping.helperFunc.listingHelperFunc import ListingUtils
 from data_scraping.helperFunc.pageHelperFunc import pageUtils
+
+
+
 
 import unittest
 # from bs4 import BeautifulSoup
@@ -20,7 +25,7 @@ class TestPageUtils(unittest.TestCase):
         page_utils = pageUtils()
 
         # Read the HTML file from the same directory
-        with open('./page_with_next_button.html', 'r', encoding='utf-8') as file:
+        with open('test/page_with_next_button.html', 'r', encoding='utf-8') as file:
             html_source_with_next_button = file.read()
 
         # Call the isNextPageAvailable function with the HTML content
@@ -35,7 +40,7 @@ class TestPageUtils(unittest.TestCase):
         page_utils = pageUtils()
         
         # Read the HTML file from the same directory
-        with open('./page_with_no_next_button.html', 'r', encoding='utf-8') as file:
+        with open('test/page_with_no_next_button.html', 'r', encoding='utf-8') as file:
             html_source_no_next_button = file.read()
 
         result_no_next_button = page_utils.isNextPageAvailable(html_source_no_next_button)
@@ -43,6 +48,25 @@ class TestPageUtils(unittest.TestCase):
         # If the expected output is False, use the following assert instead:
         self.assertFalse(result_no_next_button, "Next page button is not available") 
 
+    def test_scrape_house_listing_data(self):
+        # Initialize the pageUtils class
+        listingUtils = ListingUtils()
+        
+        # Read the HTML file from the same directory
+        with open('test/house_listing_page.html', 'r', encoding='utf-8') as file:
+            html_source_no_next_button = file.read()
+
+        data = listingUtils.get_info(html_source_no_next_button)
+        print(data)
+
 
 if __name__ == '__main__':
-    unittest.main()
+    # Comment out the following line to prevent all tests from running
+    # unittest.main()
+
+    # Run only the specific test method
+    suite = unittest.TestSuite()
+    suite.addTest(TestPageUtils('test_scrape_house_listing_data'))
+    runner = unittest.TextTestRunner()
+    runner.run(suite)
+
