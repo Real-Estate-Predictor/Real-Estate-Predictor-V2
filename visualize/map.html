@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3a2175c0cc23375a4d7a536a4745000f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_3a2175c0cc23375a4d7a536a4745000f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3a2175c0cc23375a4d7a536a4745000f = L.map(
+                "map_3a2175c0cc23375a4d7a536a4745000f",
+                {
+                    center: [49.2, -123.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e5395673e79ff9eed75665829bb043ef = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca target=\"_blank\" href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca target=\"_blank\" href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+    var color_map_3fbb23a9a45010de3977a255f3eae6fd = {};
+
+    
+    color_map_3fbb23a9a45010de3977a255f3eae6fd.color = d3.scale.threshold()
+              .domain([1628888.0, 1683499.4468937875, 1738110.8937875752, 1792722.3406813627, 1847333.7875751504, 1901945.2344689379, 1956556.6813627253, 2011168.128256513, 2065779.5751503005, 2120391.022044088, 2175002.4689378757, 2229613.915831663, 2284225.3627254507, 2338836.8096192386, 2393448.256513026, 2448059.7034068136, 2502671.150300601, 2557282.5971943885, 2611894.0440881765, 2666505.490981964, 2721116.9378757514, 2775728.3847695393, 2830339.8316633264, 2884951.2785571143, 2939562.725450902, 2994174.1723446893, 3048785.619238477, 3103397.066132264, 3158008.513026052, 3212619.9599198396, 3267231.406813627, 3321842.853707415, 3376454.300601202, 3431065.74749499, 3485677.1943887775, 3540288.641282565, 3594900.088176353, 3649511.5350701404, 3704122.981963928, 3758734.4288577153, 3813345.875751503, 3867957.3226452908, 3922568.769539078, 3977180.2164328657, 4031791.663326653, 4086403.1102204407, 4141014.5571142286, 4195626.004008016, 4250237.450901804, 4304848.8977955915, 4359460.3446893785, 4414071.791583166, 4468683.238476954, 4523294.685370741, 4577906.132264528, 4632517.579158317, 4687129.026052104, 4741740.472945891, 4796351.919839679, 4850963.366733467, 4905574.813627254, 4960186.260521042, 5014797.70741483, 5069409.154308617, 5124020.601202404, 5178632.048096193, 5233243.49498998, 5287854.941883767, 5342466.388777555, 5397077.835671343, 5451689.28256513, 5506300.729458918, 5560912.176352706, 5615523.623246493, 5670135.070140281, 5724746.517034069, 5779357.963927856, 5833969.410821644, 5888580.857715431, 5943192.304609219, 5997803.751503006, 6052415.198396794, 6107026.6452905815, 6161638.0921843685, 6216249.539078156, 6270860.9859719435, 6325472.432865731, 6380083.879759519, 6434695.326653306, 6489306.773547094, 6543918.220440881, 6598529.667334669, 6653141.114228457, 6707752.561122244, 6762364.008016032, 6816975.454909819, 6871586.901803607, 6926198.348697395, 6980809.795591182, 7035421.24248497, 7090032.689378758, 7144644.136272545, 7199255.583166333, 7253867.03006012, 7308478.476953908, 7363089.923847696, 7417701.370741483, 7472312.817635271, 7526924.264529058, 7581535.711422846, 7636147.158316634, 7690758.605210421, 7745370.052104209, 7799981.498997996, 7854592.945891784, 7909204.3927855715, 7963815.8396793585, 8018427.2865731465, 8073038.7334669335, 8127650.180360721, 8182261.627254509, 8236873.074148296, 8291484.521042084, 8346095.967935871, 8400707.41482966, 8455318.861723447, 8509930.308617234, 8564541.755511023, 8619153.202404808, 8673764.649298597, 8728376.096192386, 8782987.543086171, 8837598.98997996, 8892210.436873747, 8946821.883767534, 9001433.330661323, 9056044.77755511, 9110656.224448897, 9165267.671342686, 9219879.118236473, 9274490.56513026, 9329102.012024049, 9383713.458917836, 9438324.905811623, 9492936.352705412, 9547547.799599199, 9602159.246492986, 9656770.693386775, 9711382.140280562, 9765993.587174349, 9820605.034068137, 9875216.480961923, 9929827.927855711, 9984439.3747495, 10039050.821643287, 10093662.268537074, 10148273.715430861, 10202885.16232465, 10257496.609218437, 10312108.056112224, 10366719.503006011, 10421330.9498998, 10475942.396793587, 10530553.843687374, 10585165.290581163, 10639776.73747495, 10694388.184368737, 10748999.631262526, 10803611.078156313, 10858222.5250501, 10912833.971943887, 10967445.418837676, 11022056.865731463, 11076668.31262525, 11131279.759519039, 11185891.206412826, 11240502.653306613, 11295114.100200402, 11349725.547094189, 11404336.993987976, 11458948.440881763, 11513559.887775552, 11568171.334669339, 11622782.781563126, 11677394.228456914, 11732005.675350701, 11786617.122244488, 11841228.569138277, 11895840.016032064, 11950451.462925851, 12005062.909819638, 12059674.356713427, 12114285.803607214, 12168897.250501001, 12223508.69739479, 12278120.144288577, 12332731.591182364, 12387343.038076153, 12441954.48496994, 12496565.931863727, 12551177.378757516, 12605788.825651303, 12660400.27254509, 12715011.719438877, 12769623.166332666, 12824234.613226453, 12878846.06012024, 12933457.507014029, 12988068.953907816, 13042680.400801603, 13097291.847695392, 13151903.294589179, 13206514.741482966, 13261126.188376753, 13315737.635270542, 13370349.082164329, 13424960.529058116, 13479571.975951904, 13534183.422845691, 13588794.869739478, 13643406.316633267, 13698017.763527054, 13752629.210420841, 13807240.657314628, 13861852.104208417, 13916463.551102204, 13971074.997995991, 14025686.44488978, 14080297.891783567, 14134909.338677354, 14189520.785571143, 14244132.23246493, 14298743.679358717, 14353355.126252506, 14407966.573146293, 14462578.02004008, 14517189.466933867, 14571800.913827656, 14626412.360721443, 14681023.80761523, 14735635.254509019, 14790246.701402806, 14844858.148296593, 14899469.595190382, 14954081.042084169, 15008692.488977956, 15063303.935871743, 15117915.382765532, 15172526.829659319, 15227138.276553106, 15281749.723446894, 15336361.170340681, 15390972.617234468, 15445584.064128257, 15500195.511022044, 15554806.957915831, 15609418.404809618, 15664029.851703407, 15718641.298597194, 15773252.745490981, 15827864.19238477, 15882475.639278557, 15937087.086172344, 15991698.533066133, 16046309.97995992, 16100921.426853707, 16155532.873747494, 16210144.320641283, 16264755.76753507, 16319367.214428857, 16373978.661322646, 16428590.108216433, 16483201.55511022, 16537813.002004009, 16592424.448897796, 16647035.895791583, 16701647.342685372, 16756258.789579159, 16810870.236472946, 16865481.68336673, 16920093.13026052, 16974704.57715431, 17029316.024048097, 17083927.470941886, 17138538.91783567, 17193150.364729457, 17247761.811623245, 17302373.258517034, 17356984.705410823, 17411596.15230461, 17466207.599198397, 17520819.046092182, 17575430.49298597, 17630041.93987976, 17684653.38677355, 17739264.833667334, 17793876.280561123, 17848487.72745491, 17903099.174348697, 17957710.621242486, 18012322.068136275, 18066933.51503006, 18121544.961923845, 18176156.408817634, 18230767.855711423, 18285379.30260521, 18339990.749499, 18394602.196392786, 18449213.643286575, 18503825.09018036, 18558436.53707415, 18613047.983967938, 18667659.430861723, 18722270.87775551, 18776882.3246493, 18831493.771543086, 18886105.218436874, 18940716.66533066, 18995328.11222445, 19049939.559118237, 19104551.006012022, 19159162.45290581, 19213773.8997996, 19268385.346693385, 19322996.793587174, 19377608.240480963, 19432219.68737475, 19486831.134268537, 19541442.581162326, 19596054.02805611, 19650665.4749499, 19705276.92184369, 19759888.368737474, 19814499.815631263, 19869111.26252505, 19923722.709418837, 19978334.156312626, 20032945.60320641, 20087557.0501002, 20142168.49699399, 20196779.943887774, 20251391.390781563, 20306002.83767535, 20360614.284569137, 20415225.731462926, 20469837.178356715, 20524448.6252505, 20579060.07214429, 20633671.519038077, 20688282.965931863, 20742894.41282565, 20797505.85971944, 20852117.306613225, 20906728.753507014, 20961340.200400803, 21015951.64729459, 21070563.094188377, 21125174.541082166, 21179785.98797595, 21234397.43486974, 21289008.881763525, 21343620.328657314, 21398231.775551103, 21452843.22244489, 21507454.669338677, 21562066.116232466, 21616677.56312625, 21671289.01002004, 21725900.45691383, 21780511.903807614, 21835123.350701403, 21889734.79759519, 21944346.244488977, 21998957.691382766, 22053569.138276555, 22108180.58517034, 22162792.03206413, 22217403.478957918, 22272014.925851703, 22326626.37274549, 22381237.819639277, 22435849.266533066, 22490460.713426854, 22545072.16032064, 22599683.60721443, 22654295.054108217, 22708906.501002003, 22763517.94789579, 22818129.39478958, 22872740.841683365, 22927352.288577154, 22981963.735470943, 23036575.18236473, 23091186.629258517, 23145798.076152306, 23200409.52304609, 23255020.96993988, 23309632.41683367, 23364243.863727454, 23418855.310621243, 23473466.75751503, 23528078.204408817, 23582689.651302606, 23637301.09819639, 23691912.54509018, 23746523.99198397, 23801135.438877754, 23855746.885771543, 23910358.33266533, 23964969.779559117, 24019581.226452906, 24074192.673346695, 24128804.12024048, 24183415.56713427, 24238027.014028057, 24292638.460921843, 24347249.90781563, 24401861.35470942, 24456472.801603206, 24511084.248496994, 24565695.695390783, 24620307.14228457, 24674918.589178357, 24729530.036072146, 24784141.48296593, 24838752.92985972, 24893364.376753505, 24947975.823647294, 25002587.270541083, 25057198.71743487, 25111810.164328657, 25166421.611222446, 25221033.05811623, 25275644.50501002, 25330255.95190381, 25384867.398797594, 25439478.845691383, 25494090.29258517, 25548701.739478957, 25603313.186372746, 25657924.633266535, 25712536.08016032, 25767147.52705411, 25821758.973947898, 25876370.420841683, 25930981.86773547, 25985593.314629257, 26040204.761523046, 26094816.208416834, 26149427.65531062, 26204039.10220441, 26258650.549098197, 26313261.995991983, 26367873.44288577, 26422484.88977956, 26477096.336673345, 26531707.783567134, 26586319.230460923, 26640930.67735471, 26695542.124248497, 26750153.571142286, 26804765.01803607, 26859376.46492986, 26913987.91182365, 26968599.358717434, 27023210.805611223, 27077822.25250501, 27132433.699398797, 27187045.146292586, 27241656.59318637, 27296268.04008016, 27350879.48697395, 27405490.933867734, 27460102.380761523, 27514713.82765531, 27569325.274549097, 27623936.721442886, 27678548.168336675, 27733159.61523046, 27787771.06212425, 27842382.509018037, 27896993.955911823, 27951605.40280561, 28006216.8496994, 28060828.296593186, 28115439.743486974, 28170051.190380763, 28224662.63727455, 28279274.084168337, 28333885.531062122, 28388496.97795591, 28443108.4248497, 28497719.871743485, 28552331.318637274, 28606942.765531063, 28661554.21242485, 28716165.659318637, 28770777.106212426, 28825388.55310621, 28880000.0])
+              .range(['#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffffffff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ffaaaaff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff5555ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff', '#ff0000ff']);
+    
+
+    color_map_3fbb23a9a45010de3977a255f3eae6fd.x = d3.scale.linear()
+              .domain([1628888.0, 28880000.0])
+              .range([0, 450 - 50]);
+
+    color_map_3fbb23a9a45010de3977a255f3eae6fd.legend = L.control({position: 'topright'});
+    color_map_3fbb23a9a45010de3977a255f3eae6fd.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_3fbb23a9a45010de3977a255f3eae6fd.legend.addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+
+    color_map_3fbb23a9a45010de3977a255f3eae6fd.xAxis = d3.svg.axis()
+        .scale(color_map_3fbb23a9a45010de3977a255f3eae6fd.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([1628888.0, 8441666.0, 15254444.0, 22067222.0, 28880000.0]);
+
+    color_map_3fbb23a9a45010de3977a255f3eae6fd.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_3fbb23a9a45010de3977a255f3eae6fd.g = color_map_3fbb23a9a45010de3977a255f3eae6fd.svg.append("g")
+        .attr("class", "key")
+        .attr("transform", "translate(25,16)");
+
+    color_map_3fbb23a9a45010de3977a255f3eae6fd.g.selectAll("rect")
+        .data(color_map_3fbb23a9a45010de3977a255f3eae6fd.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_3fbb23a9a45010de3977a255f3eae6fd.x(color_map_3fbb23a9a45010de3977a255f3eae6fd.color.domain()[i - 1]) : color_map_3fbb23a9a45010de3977a255f3eae6fd.x.range()[0],
+            x1: i < color_map_3fbb23a9a45010de3977a255f3eae6fd.color.domain().length ? color_map_3fbb23a9a45010de3977a255f3eae6fd.x(color_map_3fbb23a9a45010de3977a255f3eae6fd.color.domain()[i]) : color_map_3fbb23a9a45010de3977a255f3eae6fd.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 40 - 30)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_3fbb23a9a45010de3977a255f3eae6fd.g.call(color_map_3fbb23a9a45010de3977a255f3eae6fd.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .text("House Prices");
+    
+            var circle_marker_3557befba8a0c02364e0478a6eb509e7 = L.circleMarker(
+                [49.253353, -123.1745784],
+                {"bubblingMouseEvents": true, "color": "#fdcdb9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdcdb9", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_5dcc29fc67999b115f3a267893839615 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_8003fb93320dc3b907bf6bdac097813f = $(`<div id="html_8003fb93320dc3b907bf6bdac097813f" style="width: 100.0%; height: 100.0%;">Price: $5,498,800</div>`)[0];
+                popup_5dcc29fc67999b115f3a267893839615.setContent(html_8003fb93320dc3b907bf6bdac097813f);
+            
+        
+
+        circle_marker_3557befba8a0c02364e0478a6eb509e7.bindPopup(popup_5dcc29fc67999b115f3a267893839615)
+        ;
+
+        
+    
+    
+            var circle_marker_5be893480b625c95cf8c9d5501124071 = L.circleMarker(
+                [49.257141, -123.1764991],
+                {"bubblingMouseEvents": true, "color": "#fcbfa7", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fcbfa7", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_f1fdf24b507c98a8231cca3254e16b8d = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c49f098237a7efa43d74aece10b75fef = $(`<div id="html_c49f098237a7efa43d74aece10b75fef" style="width: 100.0%; height: 100.0%;">Price: $6,800,000</div>`)[0];
+                popup_f1fdf24b507c98a8231cca3254e16b8d.setContent(html_c49f098237a7efa43d74aece10b75fef);
+            
+        
+
+        circle_marker_5be893480b625c95cf8c9d5501124071.bindPopup(popup_f1fdf24b507c98a8231cca3254e16b8d)
+        ;
+
+        
+    
+    
+            var circle_marker_ffd3df3209df216bd2c260ce1085d3cd = L.circleMarker(
+                [49.2535102, -123.1529908],
+                {"bubblingMouseEvents": true, "color": "#fed9c9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fed9c9", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_54eb0660aceca0d42777c0ef93193aad = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_d0e595185e69b06091b255c05ecf0256 = $(`<div id="html_d0e595185e69b06091b255c05ecf0256" style="width: 100.0%; height: 100.0%;">Price: $4,360,000</div>`)[0];
+                popup_54eb0660aceca0d42777c0ef93193aad.setContent(html_d0e595185e69b06091b255c05ecf0256);
+            
+        
+
+        circle_marker_ffd3df3209df216bd2c260ce1085d3cd.bindPopup(popup_54eb0660aceca0d42777c0ef93193aad)
+        ;
+
+        
+    
+    
+            var circle_marker_46fdd095a3d63ec42024208f6f2678fc = L.circleMarker(
+                [41.5842611, -87.3750054],
+                {"bubblingMouseEvents": true, "color": "#fcbfa7", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fcbfa7", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_e9fa30a461dbb4fb0f8a2d9e2ca2ae5d = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_06de9b0e1e1928a5e7255cc290f2d0b3 = $(`<div id="html_06de9b0e1e1928a5e7255cc290f2d0b3" style="width: 100.0%; height: 100.0%;">Price: $6,880,000</div>`)[0];
+                popup_e9fa30a461dbb4fb0f8a2d9e2ca2ae5d.setContent(html_06de9b0e1e1928a5e7255cc290f2d0b3);
+            
+        
+
+        circle_marker_46fdd095a3d63ec42024208f6f2678fc.bindPopup(popup_e9fa30a461dbb4fb0f8a2d9e2ca2ae5d)
+        ;
+
+        
+    
+    
+            var circle_marker_d805854ac98d648fcd50fb0e8a5f7260 = L.circleMarker(
+                [49.2520378, -123.1738438],
+                {"bubblingMouseEvents": true, "color": "#fdc9b3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdc9b3", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_4659761d68a4870cf3414cd78f9f7bbd = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_88887c0b54451693cd529530fb551a7e = $(`<div id="html_88887c0b54451693cd529530fb551a7e" style="width: 100.0%; height: 100.0%;">Price: $5,888,000</div>`)[0];
+                popup_4659761d68a4870cf3414cd78f9f7bbd.setContent(html_88887c0b54451693cd529530fb551a7e);
+            
+        
+
+        circle_marker_d805854ac98d648fcd50fb0e8a5f7260.bindPopup(popup_4659761d68a4870cf3414cd78f9f7bbd)
+        ;
+
+        
+    
+    
+            var circle_marker_339a9aa9a9e7da006b98e1df207b502b = L.circleMarker(
+                [49.2534479, -123.164708],
+                {"bubblingMouseEvents": true, "color": "#fed9c9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fed9c9", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_498d0b84af217d3b886a572fb3d3a508 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_2c7a5dd9094df045c0153363969bc032 = $(`<div id="html_2c7a5dd9094df045c0153363969bc032" style="width: 100.0%; height: 100.0%;">Price: $4,299,000</div>`)[0];
+                popup_498d0b84af217d3b886a572fb3d3a508.setContent(html_2c7a5dd9094df045c0153363969bc032);
+            
+        
+
+        circle_marker_339a9aa9a9e7da006b98e1df207b502b.bindPopup(popup_498d0b84af217d3b886a572fb3d3a508)
+        ;
+
+        
+    
+    
+            var circle_marker_452748858df41c75b731876fad19f6d4 = L.circleMarker(
+                [49.2469901, -123.1683437],
+                {"bubblingMouseEvents": true, "color": "#fca98c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fca98c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_f04db7a34c54a32fb3d066edfdec2dad = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_4c372fa5fdec5b5b2ce61923fd9bc081 = $(`<div id="html_4c372fa5fdec5b5b2ce61923fd9bc081" style="width: 100.0%; height: 100.0%;">Price: $8,850,000</div>`)[0];
+                popup_f04db7a34c54a32fb3d066edfdec2dad.setContent(html_4c372fa5fdec5b5b2ce61923fd9bc081);
+            
+        
+
+        circle_marker_452748858df41c75b731876fad19f6d4.bindPopup(popup_f04db7a34c54a32fb3d066edfdec2dad)
+        ;
+
+        
+    
+    
+            var circle_marker_c3c4722a6c0bf70a98c783eb3085547a = L.circleMarker(
+                [49.25601529999999, -123.1532819],
+                {"bubblingMouseEvents": true, "color": "#fee8de", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee8de", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_aafb90405664fca481e0a83ec8c6f6b8 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_e9786a83c4160f53bae81c56ea9ada35 = $(`<div id="html_e9786a83c4160f53bae81c56ea9ada35" style="width: 100.0%; height: 100.0%;">Price: $2,188,000</div>`)[0];
+                popup_aafb90405664fca481e0a83ec8c6f6b8.setContent(html_e9786a83c4160f53bae81c56ea9ada35);
+            
+        
+
+        circle_marker_c3c4722a6c0bf70a98c783eb3085547a.bindPopup(popup_aafb90405664fca481e0a83ec8c6f6b8)
+        ;
+
+        
+    
+    
+            var circle_marker_8dd14a3b6548b7b820e92d6f0903660b = L.circleMarker(
+                [49.2546848, -123.1575589],
+                {"bubblingMouseEvents": true, "color": "#fedccd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fedccd", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_d646e9e6a087fac09af8ac0200359457 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_d50bae5e33ddb5ceb49e56345fcd4498 = $(`<div id="html_d50bae5e33ddb5ceb49e56345fcd4498" style="width: 100.0%; height: 100.0%;">Price: $3,999,000</div>`)[0];
+                popup_d646e9e6a087fac09af8ac0200359457.setContent(html_d50bae5e33ddb5ceb49e56345fcd4498);
+            
+        
+
+        circle_marker_8dd14a3b6548b7b820e92d6f0903660b.bindPopup(popup_d646e9e6a087fac09af8ac0200359457)
+        ;
+
+        
+    
+    
+            var circle_marker_182a97a17515a94c6ab366e990ecb324 = L.circleMarker(
+                [49.2493565, -123.1681182],
+                {"bubblingMouseEvents": true, "color": "#fedecf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fedecf", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_bca5bbedd5f74caa26f776d6e4c16923 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c3d921b67cfca8429aed7ccd63a16fdc = $(`<div id="html_c3d921b67cfca8429aed7ccd63a16fdc" style="width: 100.0%; height: 100.0%;">Price: $3,888,000</div>`)[0];
+                popup_bca5bbedd5f74caa26f776d6e4c16923.setContent(html_c3d921b67cfca8429aed7ccd63a16fdc);
+            
+        
+
+        circle_marker_182a97a17515a94c6ab366e990ecb324.bindPopup(popup_bca5bbedd5f74caa26f776d6e4c16923)
+        ;
+
+        
+    
+    
+            var circle_marker_99a63e7edeaa285a1f1ecf613889faaa = L.circleMarker(
+                [49.2542482, -123.156522],
+                {"bubblingMouseEvents": true, "color": "#fdd5c4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdd5c4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_ffa92f062e13396bfcd4c7c18d39e2bb = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_0deee99d9b258204dcda67dcf87cc584 = $(`<div id="html_0deee99d9b258204dcda67dcf87cc584" style="width: 100.0%; height: 100.0%;">Price: $4,680,000</div>`)[0];
+                popup_ffa92f062e13396bfcd4c7c18d39e2bb.setContent(html_0deee99d9b258204dcda67dcf87cc584);
+            
+        
+
+        circle_marker_99a63e7edeaa285a1f1ecf613889faaa.bindPopup(popup_ffa92f062e13396bfcd4c7c18d39e2bb)
+        ;
+
+        
+    
+    
+            var circle_marker_ab98c90414fb2ef9e79443a77847e2e7 = L.circleMarker(
+                [49.256592, -123.1761205],
+                {"bubblingMouseEvents": true, "color": "#fee3d6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee3d6", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_598d5803dfc92321acda0a28a3b1afd7 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c0dcb0156db432bd296a837fc12b5e25 = $(`<div id="html_c0dcb0156db432bd296a837fc12b5e25" style="width: 100.0%; height: 100.0%;">Price: $3,190,000</div>`)[0];
+                popup_598d5803dfc92321acda0a28a3b1afd7.setContent(html_c0dcb0156db432bd296a837fc12b5e25);
+            
+        
+
+        circle_marker_ab98c90414fb2ef9e79443a77847e2e7.bindPopup(popup_598d5803dfc92321acda0a28a3b1afd7)
+        ;
+
+        
+    
+    
+            var circle_marker_b1107221ec0c1b902de645e18e56a081 = L.circleMarker(
+                [49.2525971, -123.1529439],
+                {"bubblingMouseEvents": true, "color": "#fdd5c4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdd5c4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_f641ac9d0faf13eb0e1ffffab11a120a = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_319497b6181ea5d422ec1cfeeaf1ce4c = $(`<div id="html_319497b6181ea5d422ec1cfeeaf1ce4c" style="width: 100.0%; height: 100.0%;">Price: $4,680,000</div>`)[0];
+                popup_f641ac9d0faf13eb0e1ffffab11a120a.setContent(html_319497b6181ea5d422ec1cfeeaf1ce4c);
+            
+        
+
+        circle_marker_b1107221ec0c1b902de645e18e56a081.bindPopup(popup_f641ac9d0faf13eb0e1ffffab11a120a)
+        ;
+
+        
+    
+    
+            var circle_marker_9be5046a1356d114be3b772ba947f1b6 = L.circleMarker(
+                [49.25435419999999, -123.1639473],
+                {"bubblingMouseEvents": true, "color": "#fedecf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fedecf", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_63d64e19bfbb699b9267f2b82684d1f2 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_bb5f2a3b2a8b4cf149ea7bb5b6640526 = $(`<div id="html_bb5f2a3b2a8b4cf149ea7bb5b6640526" style="width: 100.0%; height: 100.0%;">Price: $3,880,000</div>`)[0];
+                popup_63d64e19bfbb699b9267f2b82684d1f2.setContent(html_bb5f2a3b2a8b4cf149ea7bb5b6640526);
+            
+        
+
+        circle_marker_9be5046a1356d114be3b772ba947f1b6.bindPopup(popup_63d64e19bfbb699b9267f2b82684d1f2)
+        ;
+
+        
+    
+    
+            var circle_marker_4196b5df7c41ad413d4c08e19dd0399a = L.circleMarker(
+                [49.25484609999999, -123.1697331],
+                {"bubblingMouseEvents": true, "color": "#fee1d4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee1d4", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_27bcde1779ef5fdcfd36349d12b74983 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_dd1120f5371c3ad6cf9de0d80a13a383 = $(`<div id="html_dd1120f5371c3ad6cf9de0d80a13a383" style="width: 100.0%; height: 100.0%;">Price: $3,480,000</div>`)[0];
+                popup_27bcde1779ef5fdcfd36349d12b74983.setContent(html_dd1120f5371c3ad6cf9de0d80a13a383);
+            
+        
+
+        circle_marker_4196b5df7c41ad413d4c08e19dd0399a.bindPopup(popup_27bcde1779ef5fdcfd36349d12b74983)
+        ;
+
+        
+    
+    
+            var circle_marker_cd1a2ca0e353814bd46de076937da09c = L.circleMarker(
+                [44.0405303, -123.1270722],
+                {"bubblingMouseEvents": true, "color": "#fdd7c6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdd7c6", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_cd880c06c5cfe34cc7c234c053cd3d3f = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c1515a2345642917402570b2bd4bf6df = $(`<div id="html_c1515a2345642917402570b2bd4bf6df" style="width: 100.0%; height: 100.0%;">Price: $4,580,000</div>`)[0];
+                popup_cd880c06c5cfe34cc7c234c053cd3d3f.setContent(html_c1515a2345642917402570b2bd4bf6df);
+            
+        
+
+        circle_marker_cd1a2ca0e353814bd46de076937da09c.bindPopup(popup_cd880c06c5cfe34cc7c234c053cd3d3f)
+        ;
+
+        
+    
+    
+            var circle_marker_4ebfece23e6810809fd02372d506fa91 = L.circleMarker(
+                [49.2548812, -123.1725233],
+                {"bubblingMouseEvents": true, "color": "#fdd1be", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdd1be", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_c6ee8bd77c6786debd3a9c9bfba1675e = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_9348b47029fb612aab2e045feec0e4b5 = $(`<div id="html_9348b47029fb612aab2e045feec0e4b5" style="width: 100.0%; height: 100.0%;">Price: $5,180,000</div>`)[0];
+                popup_c6ee8bd77c6786debd3a9c9bfba1675e.setContent(html_9348b47029fb612aab2e045feec0e4b5);
+            
+        
+
+        circle_marker_4ebfece23e6810809fd02372d506fa91.bindPopup(popup_c6ee8bd77c6786debd3a9c9bfba1675e)
+        ;
+
+        
+    
+    
+            var circle_marker_3b6c98f55d8b470014f9808de6b40831 = L.circleMarker(
+                [44.0405625, -123.1311477],
+                {"bubblingMouseEvents": true, "color": "#fedccd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fedccd", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_f52027c0856212ed815dd03c7c7ecb4a = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_341964716692ab7ca2098fd80018e4b5 = $(`<div id="html_341964716692ab7ca2098fd80018e4b5" style="width: 100.0%; height: 100.0%;">Price: $3,999,000</div>`)[0];
+                popup_f52027c0856212ed815dd03c7c7ecb4a.setContent(html_341964716692ab7ca2098fd80018e4b5);
+            
+        
+
+        circle_marker_3b6c98f55d8b470014f9808de6b40831.bindPopup(popup_f52027c0856212ed815dd03c7c7ecb4a)
+        ;
+
+        
+    
+    
+            var circle_marker_2e8569237df3fe8479335788d38a5214 = L.circleMarker(
+                [49.2535102, -123.1529908],
+                {"bubblingMouseEvents": true, "color": "#fed9c9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fed9c9", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_241a7e566a5e1f411509e1523b844637 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_a6cdc04a04e75e84b2ee1c4dc36cd679 = $(`<div id="html_a6cdc04a04e75e84b2ee1c4dc36cd679" style="width: 100.0%; height: 100.0%;">Price: $4,360,000</div>`)[0];
+                popup_241a7e566a5e1f411509e1523b844637.setContent(html_a6cdc04a04e75e84b2ee1c4dc36cd679);
+            
+        
+
+        circle_marker_2e8569237df3fe8479335788d38a5214.bindPopup(popup_241a7e566a5e1f411509e1523b844637)
+        ;
+
+        
+    
+    
+            var circle_marker_ce7bdb02c7ebe6d855df1ec4ece9cdfb = L.circleMarker(
+                [39.766974, -105.070202],
+                {"bubblingMouseEvents": true, "color": "#fed9c9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fed9c9", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_4f852c465a9cc8c7a6735646ceff94b4 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_10ce230339c85032fc0f365bc36762ef = $(`<div id="html_10ce230339c85032fc0f365bc36762ef" style="width: 100.0%; height: 100.0%;">Price: $4,288,000</div>`)[0];
+                popup_4f852c465a9cc8c7a6735646ceff94b4.setContent(html_10ce230339c85032fc0f365bc36762ef);
+            
+        
+
+        circle_marker_ce7bdb02c7ebe6d855df1ec4ece9cdfb.bindPopup(popup_4f852c465a9cc8c7a6735646ceff94b4)
+        ;
+
+        
+    
+    
+            var circle_marker_07b465472314310246b82ebc766e88f3 = L.circleMarker(
+                [49.243786, -123.1629999],
+                {"bubblingMouseEvents": true, "color": "#fcbea5", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fcbea5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_2f724bed1254e8a5b64065b7a70ef772 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_7515bd3f041e7e1678dd936cc0524c8d = $(`<div id="html_7515bd3f041e7e1678dd936cc0524c8d" style="width: 100.0%; height: 100.0%;">Price: $6,980,000</div>`)[0];
+                popup_2f724bed1254e8a5b64065b7a70ef772.setContent(html_7515bd3f041e7e1678dd936cc0524c8d);
+            
+        
+
+        circle_marker_07b465472314310246b82ebc766e88f3.bindPopup(popup_2f724bed1254e8a5b64065b7a70ef772)
+        ;
+
+        
+    
+    
+            var circle_marker_b766400b30a2f7caeb7292d464dc044c = L.circleMarker(
+                [49.24593369999999, -123.1606109],
+                {"bubblingMouseEvents": true, "color": "#fdcbb6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdcbb6", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_fa65d0e0e94c39c90f2cdb97215f682e = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c42a959ae3c608e4b0ed1106077ea0e3 = $(`<div id="html_c42a959ae3c608e4b0ed1106077ea0e3" style="width: 100.0%; height: 100.0%;">Price: $5,688,000</div>`)[0];
+                popup_fa65d0e0e94c39c90f2cdb97215f682e.setContent(html_c42a959ae3c608e4b0ed1106077ea0e3);
+            
+        
+
+        circle_marker_b766400b30a2f7caeb7292d464dc044c.bindPopup(popup_fa65d0e0e94c39c90f2cdb97215f682e)
+        ;
+
+        
+    
+    
+            var circle_marker_8c0d67cd98f00837b37e59ba40e8e313 = L.circleMarker(
+                [39.7657249, -105.070281],
+                {"bubblingMouseEvents": true, "color": "#fcb398", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fcb398", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_e52940ae31c9f85c5047f23c98c8355b = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_578792103dcdb0d581d0a1a32dfa58f9 = $(`<div id="html_578792103dcdb0d581d0a1a32dfa58f9" style="width: 100.0%; height: 100.0%;">Price: $7,990,000</div>`)[0];
+                popup_e52940ae31c9f85c5047f23c98c8355b.setContent(html_578792103dcdb0d581d0a1a32dfa58f9);
+            
+        
+
+        circle_marker_8c0d67cd98f00837b37e59ba40e8e313.bindPopup(popup_e52940ae31c9f85c5047f23c98c8355b)
+        ;
+
+        
+    
+    
+            var circle_marker_c18c96feb56d3f85ff92dbbe5d9f55d8 = L.circleMarker(
+                [49.2549807, -123.1475322],
+                {"bubblingMouseEvents": true, "color": "#fb7b5b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fb7b5b", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_f98cb59b24c7a662a8f70046896916a1 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_2e53d89b271915be09f6f5c81c8c9eb1 = $(`<div id="html_2e53d89b271915be09f6f5c81c8c9eb1" style="width: 100.0%; height: 100.0%;">Price: $12,880,000</div>`)[0];
+                popup_f98cb59b24c7a662a8f70046896916a1.setContent(html_2e53d89b271915be09f6f5c81c8c9eb1);
+            
+        
+
+        circle_marker_c18c96feb56d3f85ff92dbbe5d9f55d8.bindPopup(popup_f98cb59b24c7a662a8f70046896916a1)
+        ;
+
+        
+    
+    
+            var circle_marker_dea245a524a155992fcd648e10d08d01 = L.circleMarker(
+                [49.24381, -123.1376613],
+                {"bubblingMouseEvents": true, "color": "#f34935", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f34935", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_eb81235422683c3d13e6273d22ed784a = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_8a944c0a358365fc9d19aa32f9ac12fe = $(`<div id="html_8a944c0a358365fc9d19aa32f9ac12fe" style="width: 100.0%; height: 100.0%;">Price: $16,988,000</div>`)[0];
+                popup_eb81235422683c3d13e6273d22ed784a.setContent(html_8a944c0a358365fc9d19aa32f9ac12fe);
+            
+        
+
+        circle_marker_dea245a524a155992fcd648e10d08d01.bindPopup(popup_eb81235422683c3d13e6273d22ed784a)
+        ;
+
+        
+    
+    
+            var circle_marker_1b983b409d83e8e58ef9661fea6a7485 = L.circleMarker(
+                [49.2465023, -123.1296571],
+                {"bubblingMouseEvents": true, "color": "#fcb99f", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fcb99f", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_95b16d66311768dafef7aa7ca774c026 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_e54be83d309b55556efb54345b7fda9a = $(`<div id="html_e54be83d309b55556efb54345b7fda9a" style="width: 100.0%; height: 100.0%;">Price: $7,380,000</div>`)[0];
+                popup_95b16d66311768dafef7aa7ca774c026.setContent(html_e54be83d309b55556efb54345b7fda9a);
+            
+        
+
+        circle_marker_1b983b409d83e8e58ef9661fea6a7485.bindPopup(popup_95b16d66311768dafef7aa7ca774c026)
+        ;
+
+        
+    
+    
+            var circle_marker_89b5f447f0a2e338817fa406576b78c0 = L.circleMarker(
+                [49.2457394, -123.1380126],
+                {"bubblingMouseEvents": true, "color": "#f34a36", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f34a36", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_9d167f1f093ee5002d986b1559bcec7d = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_fa3cb359b9b59787abe62166c3950698 = $(`<div id="html_fa3cb359b9b59787abe62166c3950698" style="width: 100.0%; height: 100.0%;">Price: $16,880,000</div>`)[0];
+                popup_9d167f1f093ee5002d986b1559bcec7d.setContent(html_fa3cb359b9b59787abe62166c3950698);
+            
+        
+
+        circle_marker_89b5f447f0a2e338817fa406576b78c0.bindPopup(popup_9d167f1f093ee5002d986b1559bcec7d)
+        ;
+
+        
+    
+    
+            var circle_marker_11f505ca1aff62cef99a88a7d4066fe6 = L.circleMarker(
+                [49.2425551, -123.1352207],
+                {"bubblingMouseEvents": true, "color": "#aa1016", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#aa1016", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_20a2e2b50d45e9658bfbf3b596b25694 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_57646353f5c5c77c76c234329e1c5dba = $(`<div id="html_57646353f5c5c77c76c234329e1c5dba" style="width: 100.0%; height: 100.0%;">Price: $24,800,000</div>`)[0];
+                popup_20a2e2b50d45e9658bfbf3b596b25694.setContent(html_57646353f5c5c77c76c234329e1c5dba);
+            
+        
+
+        circle_marker_11f505ca1aff62cef99a88a7d4066fe6.bindPopup(popup_20a2e2b50d45e9658bfbf3b596b25694)
+        ;
+
+        
+    
+    
+            var circle_marker_19a4dfd6bce8d00f0f7ca9829b63dbf3 = L.circleMarker(
+                [49.256342, -123.1316102],
+                {"bubblingMouseEvents": true, "color": "#fb7050", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fb7050", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_574ebf5d847e8f34befc1e23ae590a02 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_efde0427896e24c71d2aeb21ea8e0b83 = $(`<div id="html_efde0427896e24c71d2aeb21ea8e0b83" style="width: 100.0%; height: 100.0%;">Price: $13,880,000</div>`)[0];
+                popup_574ebf5d847e8f34befc1e23ae590a02.setContent(html_efde0427896e24c71d2aeb21ea8e0b83);
+            
+        
+
+        circle_marker_19a4dfd6bce8d00f0f7ca9829b63dbf3.bindPopup(popup_574ebf5d847e8f34befc1e23ae590a02)
+        ;
+
+        
+    
+    
+            var circle_marker_d388b4a16505c6b6e89028d2447abadf = L.circleMarker(
+                [45.0818879, -93.1433282],
+                {"bubblingMouseEvents": true, "color": "#fc9272", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fc9272", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_7aa9e8382a45bf5b62c0773a97e3d575 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_f3e055d31eb4e4fd5c30c0ad7e26f90a = $(`<div id="html_f3e055d31eb4e4fd5c30c0ad7e26f90a" style="width: 100.0%; height: 100.0%;">Price: $10,880,000</div>`)[0];
+                popup_7aa9e8382a45bf5b62c0773a97e3d575.setContent(html_f3e055d31eb4e4fd5c30c0ad7e26f90a);
+            
+        
+
+        circle_marker_d388b4a16505c6b6e89028d2447abadf.bindPopup(popup_7aa9e8382a45bf5b62c0773a97e3d575)
+        ;
+
+        
+    
+    
+            var circle_marker_886d64ca807648160a580266ce76897c = L.circleMarker(
+                [49.2555316, -123.1318427],
+                {"bubblingMouseEvents": true, "color": "#c8171c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c8171c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_7999575d838c6ed6898d9103e5219621 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_200b9beed93549063375a4cb923cfe9d = $(`<div id="html_200b9beed93549063375a4cb923cfe9d" style="width: 100.0%; height: 100.0%;">Price: $21,990,000</div>`)[0];
+                popup_7999575d838c6ed6898d9103e5219621.setContent(html_200b9beed93549063375a4cb923cfe9d);
+            
+        
+
+        circle_marker_886d64ca807648160a580266ce76897c.bindPopup(popup_7999575d838c6ed6898d9103e5219621)
+        ;
+
+        
+    
+    
+            var circle_marker_6d75e4afad3ad77a57a44a0e29b175c3 = L.circleMarker(
+                [49.2461834, -123.1371873],
+                {"bubblingMouseEvents": true, "color": "#ef3c2c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ef3c2c", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_82c017616a0481988e3ba2b460b59173 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_42c9bffa4d67b3596838199a39b21410 = $(`<div id="html_42c9bffa4d67b3596838199a39b21410" style="width: 100.0%; height: 100.0%;">Price: $18,000,000</div>`)[0];
+                popup_82c017616a0481988e3ba2b460b59173.setContent(html_42c9bffa4d67b3596838199a39b21410);
+            
+        
+
+        circle_marker_6d75e4afad3ad77a57a44a0e29b175c3.bindPopup(popup_82c017616a0481988e3ba2b460b59173)
+        ;
+
+        
+    
+    
+            var circle_marker_f1a01cfe766596daa9f464771e3cd891 = L.circleMarker(
+                [49.2327659, -123.1437415],
+                {"bubblingMouseEvents": true, "color": "#fc9272", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fc9272", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_3f532d4432aa1a90c1074ac7eeafa2f1 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_78f12f99ab308540d8a56a89f13ae74f = $(`<div id="html_78f12f99ab308540d8a56a89f13ae74f" style="width: 100.0%; height: 100.0%;">Price: $10,880,000</div>`)[0];
+                popup_3f532d4432aa1a90c1074ac7eeafa2f1.setContent(html_78f12f99ab308540d8a56a89f13ae74f);
+            
+        
+
+        circle_marker_f1a01cfe766596daa9f464771e3cd891.bindPopup(popup_3f532d4432aa1a90c1074ac7eeafa2f1)
+        ;
+
+        
+    
+    
+            var circle_marker_2406b4cebe047bf08cc6566c86516527 = L.circleMarker(
+                [49.2237764, -123.1455272],
+                {"bubblingMouseEvents": true, "color": "#fdcebb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdcebb", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_53c2bffa5974fb16e59e961541cb03d1 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_a58f00fcdbcb8408ee9682ce3718b471 = $(`<div id="html_a58f00fcdbcb8408ee9682ce3718b471" style="width: 100.0%; height: 100.0%;">Price: $5,399,000</div>`)[0];
+                popup_53c2bffa5974fb16e59e961541cb03d1.setContent(html_a58f00fcdbcb8408ee9682ce3718b471);
+            
+        
+
+        circle_marker_2406b4cebe047bf08cc6566c86516527.bindPopup(popup_53c2bffa5974fb16e59e961541cb03d1)
+        ;
+
+        
+    
+    
+            var circle_marker_8a300ca69d4c751f60b278215f56c307 = L.circleMarker(
+                [49.219436, -123.1468612],
+                {"bubblingMouseEvents": true, "color": "#fed8c7", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fed8c7", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_a5502ccc640a9728857427e8f098092b = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_ede0c9e601528c7ff7dfd002c77d6db1 = $(`<div id="html_ede0c9e601528c7ff7dfd002c77d6db1" style="width: 100.0%; height: 100.0%;">Price: $4,500,000</div>`)[0];
+                popup_a5502ccc640a9728857427e8f098092b.setContent(html_ede0c9e601528c7ff7dfd002c77d6db1);
+            
+        
+
+        circle_marker_8a300ca69d4c751f60b278215f56c307.bindPopup(popup_a5502ccc640a9728857427e8f098092b)
+        ;
+
+        
+    
+    
+            var circle_marker_0c1531723387371d3562555821599425 = L.circleMarker(
+                [49.220155, -123.1319939],
+                {"bubblingMouseEvents": true, "color": "#67000d", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#67000d", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_b4750c538c3e69b5331e5d016ac5b31f = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_50fc1e0ebfdba249ac5a7a48f3a66e27 = $(`<div id="html_50fc1e0ebfdba249ac5a7a48f3a66e27" style="width: 100.0%; height: 100.0%;">Price: $28,880,000</div>`)[0];
+                popup_b4750c538c3e69b5331e5d016ac5b31f.setContent(html_50fc1e0ebfdba249ac5a7a48f3a66e27);
+            
+        
+
+        circle_marker_0c1531723387371d3562555821599425.bindPopup(popup_b4750c538c3e69b5331e5d016ac5b31f)
+        ;
+
+        
+    
+    
+            var circle_marker_ec1d8153fc6cf92921e6e09db081a2e4 = L.circleMarker(
+                [49.219436, -123.1468612],
+                {"bubblingMouseEvents": true, "color": "#fcbea5", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fcbea5", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_8b53628ca5fcadd96f1a7dd907593104 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_015acafccab16d974a046246f4d74e5e = $(`<div id="html_015acafccab16d974a046246f4d74e5e" style="width: 100.0%; height: 100.0%;">Price: $6,988,000</div>`)[0];
+                popup_8b53628ca5fcadd96f1a7dd907593104.setContent(html_015acafccab16d974a046246f4d74e5e);
+            
+        
+
+        circle_marker_ec1d8153fc6cf92921e6e09db081a2e4.bindPopup(popup_8b53628ca5fcadd96f1a7dd907593104)
+        ;
+
+        
+    
+    
+            var circle_marker_96a557defca40684d61ca48033c30f92 = L.circleMarker(
+                [49.23550909999999, -123.1887047],
+                {"bubblingMouseEvents": true, "color": "#fdcbb6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdcbb6", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_eb050ed28d898dbf3ac71ec90ed980bb = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_5c7fc3b80bac7c8e411c074d125c0d9f = $(`<div id="html_5c7fc3b80bac7c8e411c074d125c0d9f" style="width: 100.0%; height: 100.0%;">Price: $5,688,000</div>`)[0];
+                popup_eb050ed28d898dbf3ac71ec90ed980bb.setContent(html_5c7fc3b80bac7c8e411c074d125c0d9f);
+            
+        
+
+        circle_marker_96a557defca40684d61ca48033c30f92.bindPopup(popup_eb050ed28d898dbf3ac71ec90ed980bb)
+        ;
+
+        
+    
+    
+            var circle_marker_19c1a72ff7b09dd4282ce1e6c8021406 = L.circleMarker(
+                [49.2330367, -123.1934978],
+                {"bubblingMouseEvents": true, "color": "#fee6da", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee6da", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_e36a82749bfb3f65e9799f1da7aed199 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_af39012c2532f6bba3b684a79e9fe1e8 = $(`<div id="html_af39012c2532f6bba3b684a79e9fe1e8" style="width: 100.0%; height: 100.0%;">Price: $2,688,000</div>`)[0];
+                popup_e36a82749bfb3f65e9799f1da7aed199.setContent(html_af39012c2532f6bba3b684a79e9fe1e8);
+            
+        
+
+        circle_marker_19c1a72ff7b09dd4282ce1e6c8021406.bindPopup(popup_e36a82749bfb3f65e9799f1da7aed199)
+        ;
+
+        
+    
+    
+            var circle_marker_d03a57d28e3172335253ef29948bccee = L.circleMarker(
+                [49.2298917, -123.1824528],
+                {"bubblingMouseEvents": true, "color": "#fee3d6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee3d6", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_3f018759299c6cfb597da9840d528802 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_d50c34a09c123a6730a160be67633533 = $(`<div id="html_d50c34a09c123a6730a160be67633533" style="width: 100.0%; height: 100.0%;">Price: $3,160,000</div>`)[0];
+                popup_3f018759299c6cfb597da9840d528802.setContent(html_d50c34a09c123a6730a160be67633533);
+            
+        
+
+        circle_marker_d03a57d28e3172335253ef29948bccee.bindPopup(popup_3f018759299c6cfb597da9840d528802)
+        ;
+
+        
+    
+    
+            var circle_marker_90f7d74dc485f3ac20de68bc522af45d = L.circleMarker(
+                [49.2314315, -123.1842235],
+                {"bubblingMouseEvents": true, "color": "#fed8c7", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fed8c7", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_f81f91822574df6befd424af8f16da50 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_ce79d2cd25fd979d3ed770c054f52c32 = $(`<div id="html_ce79d2cd25fd979d3ed770c054f52c32" style="width: 100.0%; height: 100.0%;">Price: $4,500,000</div>`)[0];
+                popup_f81f91822574df6befd424af8f16da50.setContent(html_ce79d2cd25fd979d3ed770c054f52c32);
+            
+        
+
+        circle_marker_90f7d74dc485f3ac20de68bc522af45d.bindPopup(popup_f81f91822574df6befd424af8f16da50)
+        ;
+
+        
+    
+    
+            var circle_marker_a0db206188770cd4e396c1b43ca78235 = L.circleMarker(
+                [49.2306117, -123.1859941],
+                {"bubblingMouseEvents": true, "color": "#fee4d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee4d8", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_77bdc91789852550ea5a0a7baa0cc669 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_6b85989c2f501e8906f317b3be11d28c = $(`<div id="html_6b85989c2f501e8906f317b3be11d28c" style="width: 100.0%; height: 100.0%;">Price: $2,999,888</div>`)[0];
+                popup_77bdc91789852550ea5a0a7baa0cc669.setContent(html_6b85989c2f501e8906f317b3be11d28c);
+            
+        
+
+        circle_marker_a0db206188770cd4e396c1b43ca78235.bindPopup(popup_77bdc91789852550ea5a0a7baa0cc669)
+        ;
+
+        
+    
+    
+            var circle_marker_143cc476815a199513b5b714c24dc703 = L.circleMarker(
+                [49.2104979, -123.1531834],
+                {"bubblingMouseEvents": true, "color": "#fee5d9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee5d9", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_c02cb0f75c04155d4794bab50e855ff0 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_f5442ad1fbec44b007f6725c1f30e5ba = $(`<div id="html_f5442ad1fbec44b007f6725c1f30e5ba" style="width: 100.0%; height: 100.0%;">Price: $2,788,800</div>`)[0];
+                popup_c02cb0f75c04155d4794bab50e855ff0.setContent(html_f5442ad1fbec44b007f6725c1f30e5ba);
+            
+        
+
+        circle_marker_143cc476815a199513b5b714c24dc703.bindPopup(popup_c02cb0f75c04155d4794bab50e855ff0)
+        ;
+
+        
+    
+    
+            var circle_marker_e0b5bdd1740a85958038c6ae20719cd4 = L.circleMarker(
+                [49.214708, -123.127253],
+                {"bubblingMouseEvents": true, "color": "#fee5d9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee5d9", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_a8faea8e231b746e9865e561e72df0fc = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_0d0015560a59b8939f83c3f784374a0c = $(`<div id="html_0d0015560a59b8939f83c3f784374a0c" style="width: 100.0%; height: 100.0%;">Price: $2,799,000</div>`)[0];
+                popup_a8faea8e231b746e9865e561e72df0fc.setContent(html_0d0015560a59b8939f83c3f784374a0c);
+            
+        
+
+        circle_marker_e0b5bdd1740a85958038c6ae20719cd4.bindPopup(popup_a8faea8e231b746e9865e561e72df0fc)
+        ;
+
+        
+    
+    
+            var circle_marker_d0b6cdf74704d5be216ee2fc0cbf4f5e = L.circleMarker(
+                [49.219436, -123.1468612],
+                {"bubblingMouseEvents": true, "color": "#fdd2bf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fdd2bf", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_5ed6d64199af6340bdee6d0c89e6534c = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_5d55ff883a059298d0a579d50e99d787 = $(`<div id="html_5d55ff883a059298d0a579d50e99d787" style="width: 100.0%; height: 100.0%;">Price: $4,988,000</div>`)[0];
+                popup_5ed6d64199af6340bdee6d0c89e6534c.setContent(html_5d55ff883a059298d0a579d50e99d787);
+            
+        
+
+        circle_marker_d0b6cdf74704d5be216ee2fc0cbf4f5e.bindPopup(popup_5ed6d64199af6340bdee6d0c89e6534c)
+        ;
+
+        
+    
+    
+            var circle_marker_cbc65c5467ab4ae9772d7ed2e3e97eac = L.circleMarker(
+                [49.2105113, -123.1404567],
+                {"bubblingMouseEvents": true, "color": "#fee5d9", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee5d9", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_66a2bdbe83d23f242e437b6fcf28a7e2 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_39827282f426dfc21ce617d5b718dcb3 = $(`<div id="html_39827282f426dfc21ce617d5b718dcb3" style="width: 100.0%; height: 100.0%;">Price: $2,790,000</div>`)[0];
+                popup_66a2bdbe83d23f242e437b6fcf28a7e2.setContent(html_39827282f426dfc21ce617d5b718dcb3);
+            
+        
+
+        circle_marker_cbc65c5467ab4ae9772d7ed2e3e97eac.bindPopup(popup_66a2bdbe83d23f242e437b6fcf28a7e2)
+        ;
+
+        
+    
+    
+            var circle_marker_65da8caee2b525f974bec59fa7d4d00a = L.circleMarker(
+                [49.224835, -123.163414],
+                {"bubblingMouseEvents": true, "color": "#fa6547", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fa6547", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_7d80a24284de2cfe95b8a851bebd7a4b = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_cc784514f7c249ccea749094c2ac2a53 = $(`<div id="html_cc784514f7c249ccea749094c2ac2a53" style="width: 100.0%; height: 100.0%;">Price: $14,880,000</div>`)[0];
+                popup_7d80a24284de2cfe95b8a851bebd7a4b.setContent(html_cc784514f7c249ccea749094c2ac2a53);
+            
+        
+
+        circle_marker_65da8caee2b525f974bec59fa7d4d00a.bindPopup(popup_7d80a24284de2cfe95b8a851bebd7a4b)
+        ;
+
+        
+    
+    
+            var circle_marker_801ab0e0be9f5c8fbe03f940e0270afc = L.circleMarker(
+                [49.2129908, -123.1307837],
+                {"bubblingMouseEvents": true, "color": "#fee5d8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee5d8", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_531c907328f89d759ff2ee4bf5e6fc56 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_956ee07edba04570029e812469c7dcc9 = $(`<div id="html_956ee07edba04570029e812469c7dcc9" style="width: 100.0%; height: 100.0%;">Price: $2,880,000</div>`)[0];
+                popup_531c907328f89d759ff2ee4bf5e6fc56.setContent(html_956ee07edba04570029e812469c7dcc9);
+            
+        
+
+        circle_marker_801ab0e0be9f5c8fbe03f940e0270afc.bindPopup(popup_531c907328f89d759ff2ee4bf5e6fc56)
+        ;
+
+        
+    
+    
+            var circle_marker_9a9c24dbd2270cfa0fa8be2124a521cd = L.circleMarker(
+                [49.2256273, -123.159242],
+                {"bubblingMouseEvents": true, "color": "#fee6da", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee6da", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_51406bf95e26368e6380404094b1d624 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_05355f962a94376a3c97065feeca9387 = $(`<div id="html_05355f962a94376a3c97065feeca9387" style="width: 100.0%; height: 100.0%;">Price: $2,599,000</div>`)[0];
+                popup_51406bf95e26368e6380404094b1d624.setContent(html_05355f962a94376a3c97065feeca9387);
+            
+        
+
+        circle_marker_9a9c24dbd2270cfa0fa8be2124a521cd.bindPopup(popup_51406bf95e26368e6380404094b1d624)
+        ;
+
+        
+    
+    
+            var circle_marker_26c1922cdc848affbf59e59ddf0b611a = L.circleMarker(
+                [49.2100689, -123.146734],
+                {"bubblingMouseEvents": true, "color": "#fcaf93", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fcaf93", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_9a256b775a1e37a0757f187b292ce059 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_5cefee482212b9f0a13e33a002f34071 = $(`<div id="html_5cefee482212b9f0a13e33a002f34071" style="width: 100.0%; height: 100.0%;">Price: $8,280,000</div>`)[0];
+                popup_9a256b775a1e37a0757f187b292ce059.setContent(html_5cefee482212b9f0a13e33a002f34071);
+            
+        
+
+        circle_marker_26c1922cdc848affbf59e59ddf0b611a.bindPopup(popup_9a256b775a1e37a0757f187b292ce059)
+        ;
+
+        
+    
+    
+            var circle_marker_348dddbbf8f0c426cca8c16b2fe2da63 = L.circleMarker(
+                [49.230727, -123.147836],
+                {"bubblingMouseEvents": true, "color": "#fee3d6", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee3d6", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_742e97cb7cb8201f1516aaac6d157ef7 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_550ec889a9fc967d3e7aad0811bf501e = $(`<div id="html_550ec889a9fc967d3e7aad0811bf501e" style="width: 100.0%; height: 100.0%;">Price: $3,188,000</div>`)[0];
+                popup_742e97cb7cb8201f1516aaac6d157ef7.setContent(html_550ec889a9fc967d3e7aad0811bf501e);
+            
+        
+
+        circle_marker_348dddbbf8f0c426cca8c16b2fe2da63.bindPopup(popup_742e97cb7cb8201f1516aaac6d157ef7)
+        ;
+
+        
+    
+    
+            var circle_marker_1ef2044dcfd272757b7f8c36d8cd4f78 = L.circleMarker(
+                [49.22788749999999, -123.2000554],
+                {"bubblingMouseEvents": true, "color": "#ffece3", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffece3", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_72b8f0f8871bb8d88523b399d00cb0ce = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_4787dbc62f9d8a5c46710762767ad695 = $(`<div id="html_4787dbc62f9d8a5c46710762767ad695" style="width: 100.0%; height: 100.0%;">Price: $1,628,888</div>`)[0];
+                popup_72b8f0f8871bb8d88523b399d00cb0ce.setContent(html_4787dbc62f9d8a5c46710762767ad695);
+            
+        
+
+        circle_marker_1ef2044dcfd272757b7f8c36d8cd4f78.bindPopup(popup_72b8f0f8871bb8d88523b399d00cb0ce)
+        ;
+
+        
+    
+    
+            var circle_marker_722159d9a5859ea8eb8e2a584fac56b9 = L.circleMarker(
+                [49.2762967, -123.2478816],
+                {"bubblingMouseEvents": true, "color": "#f34c37", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f34c37", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_b3a14e12c702bd00c339d3dc94b1d963 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_72ab1d81b85c4c71e24bda41e5d55b7a = $(`<div id="html_72ab1d81b85c4c71e24bda41e5d55b7a" style="width: 100.0%; height: 100.0%;">Price: $16,800,000</div>`)[0];
+                popup_b3a14e12c702bd00c339d3dc94b1d963.setContent(html_72ab1d81b85c4c71e24bda41e5d55b7a);
+            
+        
+
+        circle_marker_722159d9a5859ea8eb8e2a584fac56b9.bindPopup(popup_b3a14e12c702bd00c339d3dc94b1d963)
+        ;
+
+        
+    
+    
+            var circle_marker_7c673cb009a74924ef33e2fb0178f6fc = L.circleMarker(
+                [43.778038, -79.1727899],
+                {"bubblingMouseEvents": true, "color": "#fa6547", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fa6547", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_3a2175c0cc23375a4d7a536a4745000f);
+        
+    
+        var popup_5126ca746362fe46e2206d066817d9b5 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_b9bd4b44e4514cebd0aad97deadf6690 = $(`<div id="html_b9bd4b44e4514cebd0aad97deadf6690" style="width: 100.0%; height: 100.0%;">Price: $14,880,000</div>`)[0];
+                popup_5126ca746362fe46e2206d066817d9b5.setContent(html_b9bd4b44e4514cebd0aad97deadf6690);
+            
+        
+
+        circle_marker_7c673cb009a74924ef33e2fb0178f6fc.bindPopup(popup_5126ca746362fe46e2206d066817d9b5)
+        ;
+
+        
+    
+</script>
+</html>
